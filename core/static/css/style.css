@@ -155,26 +155,65 @@ h1, h2, h3, h4, h5, h6 {
 
 #social i {
 	font-size: 40px;
-	color: #4a4a4a
+	color: #4a4a4a;
 }
 
 #social i:hover {
-	color: red;
+	color: #4b67a1;
 }
 
-#socialFacebook {
-	padding-top: 50px;
-	padding-bottom: 50px;
-	background-color: white;
-}
-
-#socialFacebook i {
+#socialdribbble i {
 	font-size: 40px;
-	color: white
+	color: #4a4a4a;
 }
 
-#socialFacebook i:hover {
-	color: white;
+#socialdribbble i:hover {
+	color: #ea4c89;
+}
+
+#socialfacebook i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialfacebook i:hover {
+	color: #3b5998;
+}
+
+#socialtwitter i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialtwitter i:hover {
+	color: #1da1f2;
+}
+
+#sociallinkedin i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#sociallinkedin i:hover {
+	color: #0077B5;
+}
+
+#socialinstagram i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialinstagram i:hover {
+	color: #663300;
+}
+
+#socialtumblr i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialtumblr i:hover {
+	color: #36465d;
 }
 
 #footerwrap {
