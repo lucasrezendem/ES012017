@@ -42,7 +42,7 @@
 }
 
 .centered {
-	text-align: center
+	text-align: center;
 }
 
 .mt {
@@ -101,19 +101,20 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/back.jpg) no-repeat center top;
-	margin-top: -70px;
+	background: url(../img/background.jpeg) no-repeat center top;
+	margin-top: -120px;
 	padding-top: 250px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 650px;
+	background-origin: border-box;
+	min-height: 410px;
 	width: 100%;
 	
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
+    -webkit-background-size: 80%;
+    -moz-background-size: 80%;
+    -o-background-size: 80%;
+    background-size: 80%;
 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -217,6 +218,15 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
 }
 
+#textoTituloApp{
+	color: white;
+
+}
+
+#textoTituloApp:hover{
+	color: black;
+
+}
 
 
 
@@ -227,4 +237,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .gallery img:hover {
 	opacity: 0.4;
+}
+
+.tituloApp{
+	color:white;
+	-webkit-filter:grayscale(100%);
+}
+
+.tituloApp:hover{
+	-webkit-filter:grayscale(0%);
+    transition: 1s;
 }
