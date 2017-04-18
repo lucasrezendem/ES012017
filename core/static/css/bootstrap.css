@@ -1124,12 +1124,12 @@ img {
   max-width: 100%;
   height: auto;
   text-align: center !important;
-  -webkit-filter:grayscale(50%);
+  -webkit-filter:grayscale(0%);
 }
 
 .img-responsive:hover{
   -webkit-transition-duration: .90s;
-  -webkit-filter: grayscale(0%);
+  -webkit-filter: grayscale(30%);
 }
 
 .img-rounded {

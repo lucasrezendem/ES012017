@@ -114,12 +114,12 @@ h1, h2, h3, h4, h5, h6 {
 #headerwrap {
 	background: url(../img/background.jpeg) no-repeat center top;
 	margin-top: -120px;
-	padding-top: 250px;
+	padding-top: 240px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
 	background-origin: border-box;
-	min-height: 410px;
+	height: 470px;
 	width: 100%;
 	
     -webkit-background-size: 80%;
@@ -293,7 +293,6 @@ h1, h2, h3, h4, h5, h6 {
 	color: black;
 
 }
-
 
 
 /* Gallery */
