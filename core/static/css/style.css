@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-default .navbar-brand {
 	color: white;
-	text-shadow: 2px 2px #ff0000;
+	text-shadow: 2px 2px #000000;
 
 }
 
@@ -97,14 +97,15 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 	color: white;
 
-	background-image: linear-gradient(to bottom, black, #363636);
+	background-image: linear-gradient(to bottom, black, #a3a3a3);
 	border-bottom: 5px solid black
 	text-shadow: 2px 2px #ff0000;
 }
 
 .navbar-default .navbar-nav > li > a {
 	color: white;
-	 text-shadow: 2px 2px #ff0000;
+	text-shadow: 1px 1px #000000;
+	 font-weight: bold;
 }
 
 /* ==========================================================================
