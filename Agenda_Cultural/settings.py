@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'account',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'Agenda_Cultural.urls'
@@ -67,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
             'debug': DEBUG,
         },
@@ -75,6 +80,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Agenda_Cultural.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -134,3 +145,18 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Default URLs
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'profile'
+SOCIAL_AUTH_LOGIN_ERROR_URL = 'login'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'profile'
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = 'profile'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+# Configuracoes para login pelas redes sociais
+SOCIAL_AUTH_FACEBOOK_KEY = '405177329880911'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'c632e32e05410b03136dd72f3abc12a7'
+SOCIAL_AUTH_GITHUB_KEY = '750ab5bf73fd073e08d3'
+SOCIAL_AUTH_GITHUB_SECRET = '3f57267814638cd3b127c876a1632e197e3d45e5'
