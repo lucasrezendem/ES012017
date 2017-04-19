@@ -262,6 +262,146 @@ h1, h2, h3, h4, h5, h6 {
 	color: #ffffff
 }
 
+#workwrapBares {	
+	background: url(../img/bares.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapBares h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapBares h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#workwrapEsportes {	
+	background: url(../img/esportes.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapEsportes h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapEsportes h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#workwrapFestas {	
+	background: url(../img/festas.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapFestas h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapFestas h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#workwrapTeatro {	
+	background: url(../img/teatro.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapTeatro h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapTeatro h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
 #aboutwrap {	
 	background: url(../img/about.jpg) no-repeat center top;
 	margin-top: -70px;
@@ -284,16 +424,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #textoTituloApp{
-	color: white;
-	 text-shadow: 2px 2px #ff0000;
+	color: black;
+	text-shadow: 10px 10px 10px #000000;
+	background-color: transparent;
+	
 
 }
 
 #textoTituloApp:hover{
-	color: black;
-
+	color: white;
+text-shadow: 5px 5px 5px black;
 }
 
+
+#textoTituloAppGeral{
+	color: white !important;
+	text-shadow: 10px 10px 10px #000000 !important;
+	background-color: transparent !important;
+}
+
+#textoTituloAppGeral:hover{
+	color: white !important;
+text-shadow: 5px 5px 5px black !important;
+}
 
 /* Gallery */
 .gallery {
