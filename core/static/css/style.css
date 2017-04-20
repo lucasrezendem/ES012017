@@ -46,7 +46,7 @@
 }
 
 .mt {
-	margin-top: 80px;
+	margin-top: 20px;
 }
 
 .mb {
@@ -404,13 +404,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #aboutwrap {	
-	background: url(../img/about.jpg) no-repeat center top;
+	background: url(../img/newAbout.jpg) no-repeat center top;
 	margin-top: -70px;
-	padding-top: 250px;
+	padding-top: 200px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 550px;
+	min-height: 350px;
 	width: 100%;
 	
     -webkit-background-size: 100%;
@@ -447,6 +447,22 @@ text-shadow: 5px 5px 5px black;
 #textoTituloAppGeral:hover{
 	color: white !important;
 text-shadow: 5px 5px 5px black !important;
+}
+
+#loginText{
+		color: white;
+text-shadow: 10px 10px 10px black;
+padding-bottom: 30px;
+
+
+}
+
+#loginText:hover{
+
+	color: white;
+	text-shadow: 5px 5px 5px #000000;
+	background-color: transparent;
+
 }
 
 /* Gallery */
