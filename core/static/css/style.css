@@ -483,3 +483,8 @@ padding-bottom: 30px;
 	-webkit-filter:grayscale(0%);
     transition: 1s;
 }
+
+a.nounderline:link 
+{ 
+ text-decoration:none; 
+} 

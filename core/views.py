@@ -29,4 +29,11 @@ def teatro(request):
 def about(request):
     return render(request,  'about.html')
 
+def fazerlogin(request):
+    return render(request,  'fazerlogin.html')
+
+def fazersignup(request):
+    return render(request,  'fazersignup.html')
+
+
 
