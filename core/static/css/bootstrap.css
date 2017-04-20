@@ -1122,6 +1122,7 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
+  min-width: 100%
   height: auto;
   text-align: center !important;
   -webkit-filter:grayscale(0%);
@@ -1607,7 +1608,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 100%;
   }
 }
 .container-fluid {
