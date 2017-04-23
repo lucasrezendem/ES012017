@@ -87,6 +87,19 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'account.models.social_update_pipeline',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -160,3 +173,9 @@ SOCIAL_AUTH_FACEBOOK_KEY = '405177329880911'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'c632e32e05410b03136dd72f3abc12a7'
 SOCIAL_AUTH_GITHUB_KEY = '750ab5bf73fd073e08d3'
 SOCIAL_AUTH_GITHUB_SECRET = '3f57267814638cd3b127c876a1632e197e3d45e5'
+
+# Informacoes recebidas pela autenticacao por redes sociais
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = { 'fields': 'id, age_range, name, email, picture' }
+
+AUTH_USER_MODEL = 'account.Usuario'
