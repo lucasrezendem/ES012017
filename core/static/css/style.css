@@ -46,7 +46,7 @@
 }
 
 .mt {
-	margin-top: 80px;
+	margin-top: 20px;
 }
 
 .mb {
@@ -122,6 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-origin: border-box;
 	height: 470px;
 	width: 100%;
+	background-color: #2f2f2f;
 	
     -webkit-background-size: 80%;
     -moz-background-size: 80%;
@@ -141,6 +142,7 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 4px;
 	font-size: 80px;
 	font-weight: bold;
+	text-align: center;
 }
 
 #headerwrap h4 {
@@ -404,13 +406,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #aboutwrap {	
-	background: url(../img/about.jpg) no-repeat center top;
+	background: url(../img/newAbout.jpg) no-repeat center top;
 	margin-top: -70px;
-	padding-top: 250px;
+	padding-top: 200px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 550px;
+	min-height: 350px;
 	width: 100%;
 	
     -webkit-background-size: 100%;
@@ -435,8 +437,24 @@ h1, h2, h3, h4, h5, h6 {
 
 #textoTituloApp:hover{
 	color: white;
-	text-shadow: 5px 5px 5px black;
+	text-shadow: 10px 10px 10px black;
 }
+
+#textoSubTituloApp{
+	color: #FFFAFA;
+	text-shadow: 10px 10px 10px #000000;
+	background-color: transparent;
+	margin: 0px; 
+	padding: 0px;
+
+}
+
+#textoSubTituloApp:hover{
+	color: white;
+	text-shadow: 5px 5px 5px black;
+	background-color: transparent;
+}
+
 
 
 #textoTituloAppGeral{
@@ -448,6 +466,30 @@ h1, h2, h3, h4, h5, h6 {
 #textoTituloAppGeral:hover{
 	color: white !important;
 text-shadow: 5px 5px 5px black !important;
+}
+
+#loginText{
+		color: white;
+text-shadow: 10px 10px 10px black;
+padding-bottom: 30px;
+
+
+}
+
+#loginText:hover{
+
+	color: white;
+	text-shadow: 5px 5px 5px #000000;
+	background-color: transparent;
+
+}
+
+#menusImagem{
+	text-align: center; 
+	margin-left:2px !important; 
+	margin-right:2px !important; 
+	margin-top:0px !important; 
+	background-color: #2f2f2f;
 }
 
 /* Gallery */
@@ -468,3 +510,8 @@ text-shadow: 5px 5px 5px black !important;
 	-webkit-filter:grayscale(0%);
     transition: 1s;
 }
+
+a.nounderline:link 
+{ 
+ text-decoration:none; 
+} 

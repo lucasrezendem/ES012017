@@ -8,6 +8,5 @@ urlpatterns = [
 	url(r'^pagina_festas/$', views.festas, name='festas'),
 	url(r'^pagina_sobre/$', views.sobre, name='sobre'),
 	url(r'^pagina_teatro/$', views.teatro, name='teatro'),
-	url(r'^pagina_login/$', views.login, name='login'),
-    url(r'^home/$', views.home, name='home'),
+	url(r'^about/$', views.about, name='about'),
 ]

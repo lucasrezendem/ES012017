@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load static %}
+!<DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!--link rel="shortcut icon" href="{% static 'assets/ico/favicon.ico' %" / -->
+    <link rel="shortcut icon" href="../../static/ico/favicon.ico">
 
     <title>INSTANT - Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'static/css/bootstrap.css' %" rel="stylesheet">
+    <link href="../../static/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'static/css/style.css' %" rel="stylesheet">
-    <link href="{% static 'static/css/font-awesome.min.css' %" rel="stylesheet">
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -40,63 +39,75 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">INSTANT</a>
+          <a class="navbar-brand" href="/">AGENDA CULTURAL</a>
         </div>
-        <div class="navba-collapse collapse">
+        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href={% url 'profile' %}>Profile</a></li>
+           <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+           	<li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>
+           	<li class="active"><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
 
-	<div id="headerwrap">
+	<div id="workwrap">
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
-					<h4>HELLO PEOPLE, MY NAME IS</h4>
-					<h1>PAUL SILVA</h1>
-					<h4>WEB DESIGNER, DEVELOPER & GAME ADDICT</h4>
+				<h3 id="loginText">Log In</h3>
+
+          <div id="login">
+            <form class="form-horizontal" name="LoginForm" action={% url 'login' %} method="post">
+            {% csrf_token %}
+            <div class="control-group">
+                <label class="control-label" for="username">Username</label>
+                <div class="controls">
+                    <input type="text" id="username" name="username"  placeholder="Username">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
+            <br>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Login</button>
+                </div>
+            </div>
+            </form>
+        </div>
+
 				</div>
 			</div><! --/row -->
 	    </div> <!-- /container -->
-	</div><! --/headerwrap -->
+	</div><! --/workwrap -->
 	
-	<section id="works"></section>
-	<div class="container">
-		<div class="row centered mt mb">
-			<h1>My Portfolio</h1>
-					
-			
-			<!--div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="work.html"><img src="assets/img/portfolio/folio04.png" class="img-responsive"></a>
-			</div -->
-			
-		</div><! --/row -->
-	</div><! --/container -->
+	
 	
 	<div id="social">
 		<div class="container">
 			<div class="row centered">
-				<div class="col-lg-2">
+				<div id="socialdribbble" class="col-lg-2">
 					<a href="#"><i class="fa fa-dribbble"></i></a>
 				</div>
-				<div class="col-lg-2">
+				<div id="socialfacebook" class="col-lg-2">
 					<a href="#"><i class="fa fa-facebook"></i></a>
 				</div>
-				<div class="col-lg-2">
+				<div id="socialtwitter" class="col-lg-2">
 					<a href="#"><i class="fa fa-twitter"></i></a>
 				</div>
-				<div class="col-lg-2">
+				<div id="sociallinkedin" class="col-lg-2">
 					<a href="#"><i class="fa fa-linkedin"></i></a>
 				</div>
-				<div class="col-lg-2">
+				<div id="socialinstagram" class="col-lg-2">
 					<a href="#"><i class="fa fa-instagram"></i></a>
 				</div>
-				<div class="col-lg-2">
+				<div id="socialtumblr" class="col-lg-2">
 					<a href="#"><i class="fa fa-tumblr"></i></a>
 				</div>
 			
@@ -104,15 +115,16 @@
 		</div><! --/container -->
 	</div><! --/social -->
 
+
 	<div id="footerwrap">
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-4">
-					<p><b>WEB DESIGNER, DEVELOPER & GAME ADDICT</b></p>
+					<p><b>FIQUE LIGADOS NOS EVENTOS AO SEU REDOR!</b></p>
 				</div>
 			
 				<div class="col-lg-4">
-					<p>Living in the amazing London.</p>
+					<p>"Se você obedece todas as regras, acaba perdendo toda a diversão..."</p>
 				</div>
 				<div class="col-lg-4">
 					<p>hello@instant.com</p>
@@ -127,6 +139,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{% static 'static/js/bootstrap.min.js' %"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
   </body>
 </html>
