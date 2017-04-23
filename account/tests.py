@@ -9,70 +9,70 @@ class UsuarioTestCase(TestCase):
             password = '-------------',
             authenticator = 'local',
             age_range = None,
-            birthday_date = '2000-05-18',
+            birth_date = '2000-05-18',
         )
         Usuario.objects.create(
             username = 'local_wrong_birth_date',
             password = '-------------',
             authenticator = 'local',
             age_range = None,
-            birthday_date = '3000-05-18',
+            birth_date = '3000-05-18',
         )
         Usuario.objects.create(
             username = 'facebook_ok_1',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '20,15',
-            birthday_date = None,
+            birth_date = None,
         )
         Usuario.objects.create(
             username = 'facebook_ok_2',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '20,17',
-            birthday_date = None,
+            birth_date = None,
         )
         Usuario.objects.create(
             username = 'facebook_ok_3',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '30,20',
-            birthday_date = None,
+            birth_date = None,
         )
         Usuario.objects.create(
             username = 'facebook_ok_4',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '27,25',
-            birthday_date = None,
+            birth_date = None,
         )
         Usuario.objects.create(
             username = 'facebook_wrong_age_range_1',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '15,20',
-            birthday_date = None,
+            birth_date = None,
         )
         Usuario.objects.create(
             username = 'facebook_wrong_age_range_2',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '-35,20',
-            birthday_date = None,
+            birth_date = None,
         )
         Usuario.objects.create(
             username = 'facebook_wrong_age_range_3',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '0,20',
-            birthday_date = None,
+            birth_date = None,
         )
         Usuario.objects.create(
             username = 'wrong_authenticador',
             password = '-------------',
             authenticator = 'qualquercoisa',
             age_range = '20,15',
-            birthday_date = None,
+            birth_date = None,
         )
 
     def test_validators(self):
