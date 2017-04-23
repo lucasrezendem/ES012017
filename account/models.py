@@ -60,7 +60,11 @@ class Usuario(AbstractUser):
     def update_social_info_facebook(self, response):
         self.authenticator = 'facebook'
         age_range = response.get('age_range')
-        self.age_range = '%d,%d' % (age_range.get('max'), age_range.get('min'))
+        # O range retornado pelo facebook pode conter apenas o minimo da idade
+        age_min = age_range.get('min')
+        age_max = age_range.get('max') if age_range.get('max') != None else age_range.get('min')
+        if (age_min != None) and (age_max != None):
+            self.age_range = '%d,%d' % (age_max, age_min)
         self.save_clean()
 
     def initialize_social_info_facebook(self, response):
@@ -91,6 +95,8 @@ class Usuario(AbstractUser):
             today = date.today()
             return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
         if self.authenticator == 'facebook':
+            if self.age_range == None:
+                return None
             # Idade aproximada pela media do range
             age_range = [int(x) for x in self.age_range.split(",")]
             return (age_range[0] + age_range[1]) / 2
