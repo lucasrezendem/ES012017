@@ -69,14 +69,18 @@ class Usuario(AbstractUser):
 
     def update_user_info(self, form):
         self.username = form.cleaned_data['username']
+        self.first_name = form.cleaned_data['first_name']
+        self.last_name = form.cleaned_data['last_name']
+        self.user_type = form.cleaned_data['user_type']
+        self.birth_date = form.cleaned_data['birth_date']
         self.email = form.cleaned_data['email']
-        self.password = form.cleaned_data['password']
+        self.set_password(form.cleaned_data['password1'])
         self.save_clean()
 
     def initialize_new_user(self, form):
         self.authenticator = 'local'
         self.age_range = None
-        update_user_info(form)
+        self.update_user_info(form)
 
     def age(self):
         if self.authenticator == 'local':

@@ -46,7 +46,7 @@
           <ul class="nav navbar-nav navbar-right">
            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
            	<li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>
-           	<li class="active"><a href="{% url 'login' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+           	<li class="active"><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -61,10 +61,13 @@
 					<a href="{% url 'signup' %}" class="nounderline">
 					<button type="button" class="btn btn-primary btn-lg btn-block">Sign Up</button>
 					</a>
-					<div style="padding: 2px;"></div>
+					<div style="padding: 10px;"></div>
 					<a href="{% url 'login' %}" class="nounderline">	
 					<button type="button" class="btn btn-secondary btn-lg btn-block">Log In</button>
 					</a>
+					<div style="padding: 10px;"></div>
+					<a href="{% url 'social:begin' 'facebook' %}" class="nounderline">	
+					<button type="button" class="btn btn-primary btn-lg btn-block">Facebook Log In</button>
 				</div>
 			</div><! --/row -->
 	    </div> <!-- /container -->
