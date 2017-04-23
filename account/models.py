@@ -9,6 +9,11 @@ from datetime import date
 
 valid_authenticators = ['local', 'facebook']
 
+# Definicao dos tipos de usuatios
+USER_TYPE_CHOICES = (
+    ('US', 'Usuario comum'),
+    ('PR', 'Promovedor de enventos'),
+)
 
 def validate_authenticator(authenticator):
     if authenticator not in valid_authenticators:
@@ -26,9 +31,9 @@ def validate_age_range(age_range_string):
         raise ValidationError(_('Invalid age range'))
 
 
-def validate_birth_date(birthday_date):
-    if birthday_date > date.today():
-        raise ValidationError(_('Invalid birthday date'))
+def validate_birth_date(birth_date):
+    if birth_date > date.today():
+        raise ValidationError(_('Invalid birth date'))
 
 
 class Usuario(AbstractUser):
@@ -40,7 +45,13 @@ class Usuario(AbstractUser):
         null = True,
         blank = True,
     )
-    birthday_date = models.DateField(validators=[validate_birth_date], null = True, blank = True)
+    birth_date = models.DateField(validators=[validate_birth_date], null = True, blank = True)
+
+    user_type = models.CharField(
+        max_length=2,
+        choices=USER_TYPE_CHOICES,
+        default='US',
+    )
 
     def save_clean(self, *args, **kwargs):
         self.full_clean()
@@ -53,16 +64,24 @@ class Usuario(AbstractUser):
         self.save_clean()
 
     def initialize_social_info_facebook(self, response):
-        self.birthday_date = None
+        self.birth_date = None
         self.update_social_info_facebook(response)
 
-    def update_user_info(self):
-        pass
+    def update_user_info(self, form):
+        self.username = form.cleaned_data['username']
+        self.email = form.cleaned_data['email']
+        self.password = form.cleaned_data['password']
+        self.save_clean()
+
+    def initialize_new_user(self, form):
+        self.authenticator = 'local'
+        self.age_range = None
+        update_user_info(form)
 
     def age(self):
         if self.authenticator == 'local':
             # Data de nascimento salva
-            born = self.birthday_date
+            born = self.birth_date
             if born == None:
                 return None
             today = date.today()
