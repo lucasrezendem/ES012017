@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.conf import settings
@@ -32,11 +32,13 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            Usuario.initialize_new_user(form)
+            user = Usuario()
+            user.initialize_new_user(form)
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
-            return redirect('home')
+            return redirect('index')
     else:
         form = SignUpForm()
+
     return render(request, 'account/signup.html', {'form': form})

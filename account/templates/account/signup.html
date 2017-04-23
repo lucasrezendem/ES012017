@@ -45,7 +45,7 @@
           <ul class="nav navbar-nav navbar-right">
            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
            	<li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>
-           	<li class="active"><a href="{% url 'login' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+           	<li class="active"><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -58,15 +58,17 @@
 				<div class="col-lg-6 col-lg-offset-3">
 				<h3 id="loginText">Sign Up</h3>
 
-          <h2>Sign up</h2>
           <form method="post">
             {% csrf_token %}
             {% for field in form %}
               <p>
-                {{ field.label_tag }}<br>
-                {{ field }}
+                <font color="white">
+                  {{ field.label_tag }}
+                </font>
+                <br>
+                {{ field }}<br>
                 {% if field.help_text %}
-                  <small style="color: grey">{{ field.help_text }}</small>
+                  <small style="color: white">{{ field.help_text }}</small>
                 {% endif %}
                 {% for error in field.errors %}
                   <p style="color: red">{{ error }}</p>
