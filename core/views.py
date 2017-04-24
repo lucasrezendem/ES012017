@@ -17,9 +17,6 @@ def esportes(request):
 def festas(request):
     return render(request,  'pagina_festas.html')
 
-def login(request):
-    return render(request,  'login.html')
-
 def sobre(request):
     return render(request,  'pagina_sobre.html')
 
@@ -28,12 +25,3 @@ def teatro(request):
 
 def about(request):
     return render(request,  'about.html')
-
-def fazerlogin(request):
-    return render(request,  'fazerlogin.html')
-
-def fazersignup(request):
-    return render(request,  'fazersignup.html')
-
-
-
