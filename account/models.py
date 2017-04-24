@@ -72,19 +72,19 @@ class Usuario(AbstractUser):
         self.update_social_info_facebook(response)
 
     def update_user_info(self, new_info):
-        if new_info['username'] != None:
+        if new_info.get('username') != None:
             self.username = new_info['username']
-        if new_info['first_name'] != None:
+        if new_info.get('first_name') != None:
             self.first_name = new_info['first_name']
-        if new_info['last_name'] != None:
+        if new_info.get('last_name') != None:
             self.last_name = new_info['last_name']
-        if new_info['user_type'] != None:
+        if new_info.get('user_type') != None:
             self.user_type = new_info['user_type']
-        if new_info['birth_date'] != None:
+        if new_info.get('birth_date') != None:
             self.birth_date = new_info['birth_date']
-        if new_info['email'] != None:
+        if new_info.get('email') != None:
             self.email = new_info['email']
-        if new_info['password1'] != None:
+        if new_info.get('password1') != None:
             self.set_password(new_info['password1'])
         self.save_clean()
 

@@ -1,14 +1,15 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import ModelForm
 from .models import USER_TYPE_CHOICES, Usuario
 
+UPDATE_NOT_EDITABLE_FIELDS = ['username', 'password1', 'password2', 'password']
+UPDATE_HIDE_FIELDS = ['password1', 'password2', ]
 
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True, help_text='Requeired.')
     last_name = forms.CharField(max_length=30, required=True, help_text='Requeired.')
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
-    birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
+    birth_date = forms.DateField(help_text='Required. Format: DD/MM/AAAA')
     user_type = forms.ChoiceField(choices=USER_TYPE_CHOICES)
 
     class Meta:
@@ -22,27 +23,38 @@ class UpdateForm(SignUpForm):
         model = Usuario
         fields = ('username', 'user_type', 'first_name', 'last_name', 'birth_date','email', )
 
-    def __init__(self, user):
-        super(UpdateForm, self).__init__()
+    def __init__(self, user, request_post=None):
+        super(UpdateForm, self).__init__(request_post)
         self.user = user
 
-        # Inicializa os campos
-        self.fields.pop('password1')
-        self.fields.pop('password2')
-        self.fields['username'].initial = user.username
-        self.fields['username'].widget.attrs['disabled'] = 'true'
-        self.fields['username'].required = False
-        self.fields['user_type'].initial = user.user_type
-        self.fields['first_name'].initial = user.first_name
-        self.fields['last_name'].initial = user.last_name
-        self.fields['birth_date'].initial = user.birth_date
-        self.fields['email'].initial = user.email
+        for field in self.fields:
+            # Inicializa o valor do campo
+            try:
+                self.fields[field].initial = getattr(self.user, field)
+            except:
+                pass # Ignora a execao, deixando o campo vazio
+
+            # Esconde campo
+            if field in UPDATE_HIDE_FIELDS:
+                self.fields.pop(field)
+
+            # Marca campo como nao editavel
+            if field in UPDATE_NOT_EDITABLE_FIELDS and self.fields.get(field, None) != None:
+                self.fields[field].widget.attrs['readonly'] = True
+                self.fields[field].required = False
+
+    # O atributo username nao pode ser alterado
+    def clean_username(self):
+        pass
 
     # Retorna um dicionario com os campos alterados
     def get_diff(self):
-        diff = {}
-        for field in self.fields:
-            if self.fields[field] != self.user.getattr(self.user, field):
-                diff[field] = self.fields[field]
-        print diff
-        return diff
+        if self.is_valid():
+            diff = {}
+            for field in self.fields:
+                if self.cleaned_data[field] != getattr(self.user, field):
+                    if field not in UPDATE_NOT_EDITABLE_FIELDS:
+                        diff[field] = self.cleaned_data[field]
+            return diff
+        else:
+            return None

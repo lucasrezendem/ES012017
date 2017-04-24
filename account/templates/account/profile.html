@@ -61,6 +61,12 @@
             <input type="submit" value="Logout" />
           </form>
           <font color="white"> {{ first_name }} {{ last_name }} </font> <br>
+          {% if update_ok == True %}
+            <font color="blue"> <b>Perfil atualizado</b> </font>
+          {% elif update_ok == False %}
+            <font color="red"> <b>Erro na autualizacao do perfil</b> </font>
+          {% endif %}
+
           {% if social_authenticated == True %}
             <font color="blue"> <b>Autenticado por {{ authenticator_name }}</b> </font>
           {% else %}
@@ -81,7 +87,7 @@
                   {% endfor %}
                 </p>
               {% endfor %}
-              <button type="submit" name="update">Update</button>
+              <button type="submit" name="update" value="update">Update</button>
             </form>
           {% endif %}
         </div>
