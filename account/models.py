@@ -71,14 +71,21 @@ class Usuario(AbstractUser):
         self.birth_date = None
         self.update_social_info_facebook(response)
 
-    def update_user_info(self, form):
-        self.username = form.cleaned_data['username']
-        self.first_name = form.cleaned_data['first_name']
-        self.last_name = form.cleaned_data['last_name']
-        self.user_type = form.cleaned_data['user_type']
-        self.birth_date = form.cleaned_data['birth_date']
-        self.email = form.cleaned_data['email']
-        self.set_password(form.cleaned_data['password1'])
+    def update_user_info(self, new_info):
+        if new_info.get('username') != None:
+            self.username = new_info['username']
+        if new_info.get('first_name') != None:
+            self.first_name = new_info['first_name']
+        if new_info.get('last_name') != None:
+            self.last_name = new_info['last_name']
+        if new_info.get('user_type') != None:
+            self.user_type = new_info['user_type']
+        if new_info.get('birth_date') != None:
+            self.birth_date = new_info['birth_date']
+        if new_info.get('email') != None:
+            self.email = new_info['email']
+        if new_info.get('password1') != None:
+            self.set_password(new_info['password1'])
         self.save_clean()
 
     def initialize_new_user(self, form):
