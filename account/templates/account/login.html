@@ -79,6 +79,9 @@
                     <button type="submit" class="btn">Login</button>
                 </div>
             </div>
+            {% if login_erro %}
+               <font color="red">Usuario ou senha invalidos</font>
+            {% endif %}
             </form>
         </div>
 

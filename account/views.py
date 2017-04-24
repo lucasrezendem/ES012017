@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponseRedirect
 from django.conf import settings
 from .models import Usuario
 from .forms import SignUpForm
@@ -15,6 +14,9 @@ def profile(request):
 
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return redirect('profile')
+
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
@@ -23,12 +25,17 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
+                return redirect(settings.LOGIN_REDIRECT_URL)
+        else:
+            return render(request, 'account/login.html', {'login_erro': True})
     else:
         return render(request, 'account/login.html')
 
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('profile')
+
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -37,7 +44,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
-            return redirect('index')
+            return redirect(settings.LOGIN_REDIRECT_URL)
     else:
         form = SignUpForm()
 

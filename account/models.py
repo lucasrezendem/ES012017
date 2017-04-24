@@ -86,20 +86,23 @@ class Usuario(AbstractUser):
         self.age_range = None
         self.update_user_info(form)
 
+    @property
     def age(self):
-        if self.authenticator == 'local':
-            # Data de nascimento salva
+        if self.birth_date != None:
+            # Calcula a idade pela data de nascimento
             born = self.birth_date
             if born == None:
                 return None
             today = date.today()
             return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-        if self.authenticator == 'facebook':
+        if self.age_range != None:
+            # Idade aproximada calculada pela media do range
             if self.age_range == None:
                 return None
-            # Idade aproximada pela media do range
             age_range = [int(x) for x in self.age_range.split(",")]
             return (age_range[0] + age_range[1]) / 2
+        else:
+            return None
 
 
 
