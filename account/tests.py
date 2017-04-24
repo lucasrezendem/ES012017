@@ -1,6 +1,95 @@
 from django.test import TestCase
-from .models import Usuario
+from django.core.urlresolvers import reverse
+from django.conf import settings
+from .models import Usuario, social_update_pipeline
 from datetime import date
+
+class ViewsTest(TestCase):
+    def setUp(self):
+        Usuario.objects.create_user(
+            username = 'usuario',
+            password = '123456',
+            authenticator = 'local',
+        )
+
+    def test_profile(self):
+        # Testa a resposta como usuario nao autenticado
+        response = self.client.get(reverse('profile'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'account/login_or_signup.html')
+
+        # Testa a resposta como usuario autenticado
+        self.client.logout()
+        self.client.login(username='usuario', password='123456')
+        response = self.client.get(reverse('profile'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'account/profile.html')
+
+    def test_login_user(self):
+        # Testa a resposta como usuario nao autenticado
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'account/login.html')
+
+        # Testa a autenticacao
+        self.client.logout()
+        response = self.client.post(reverse('login'),
+                {'username': 'usuario', 'password': '123456'},
+                follow = True
+            )
+        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+        self.assertEqual(response.context['user'].username, 'usuario')
+
+        # Testa a resposta como usuario ja autenticado
+        self.client.logout()
+        self.client.login(username='usuario', password='123456')
+        response = self.client.get(reverse('profile'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'account/profile.html')
+
+    def test_signip(self):
+        # Testa a resposta como usuario nao autenticado
+        response = self.client.get(reverse('signup'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'account/signup.html')
+        self.assertIsNotNone(response.context['form'])
+
+        # Testa a criacao de novo usuario
+        new_user_info = {
+                            'username': 'novo_usuario',
+                            'user_type': 'PR',
+                            'first_name': 'novo',
+                            'last_name': 'Usuario',
+                            'birth_date': '1996-10-01',
+                            'email': 'usuario@gmail.com',
+                            'password1': 'teste123456',
+                            'password2': 'teste123456',
+                        }
+        self.client.logout()
+        response = self.client.post(reverse('signup'), new_user_info, follow = True)
+        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+        self.assertEqual(response.context['user'].username, 'novo_usuario')
+
+        # Testa se os dados foram salvos corretamente
+        self.client.logout()
+        self.client.login(username='novo_usuario', password='teste123456')
+        response = self.client.get(reverse('index')) # Requisita uma pagina qualquer para recuperar as informacoes do usuario
+        self.assertEqual(new_user_info['username'], response.context['user'].username)
+        self.assertEqual(new_user_info['user_type'], response.context['user'].user_type)
+        self.assertEqual(new_user_info['first_name'], response.context['user'].first_name)
+        self.assertEqual(new_user_info['last_name'], response.context['user'].last_name)
+        self.assertEqual(new_user_info['email'], response.context['user'].email)
+
+        # Testa a resposta como usuario ja autenticado
+        self.client.logout()
+        self.client.login(username='usuario', password='123456')
+        response = self.client.get(reverse('profile'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'account/profile.html')
+        pass
+
 
 class UsuarioTestCase(TestCase):
     def setUp(self):
@@ -117,10 +206,10 @@ class UsuarioTestCase(TestCase):
 
     def test_age(self):
         # Confere o calculo aproximado da idade pelo range passado pelo Facebook
-        self.assertEqual(17, Usuario.objects.get(username='facebook_ok_1').age())
-        self.assertEqual(18, Usuario.objects.get(username='facebook_ok_2').age())
-        self.assertEqual(25, Usuario.objects.get(username='facebook_ok_3').age())
-        self.assertEqual(26, Usuario.objects.get(username='facebook_ok_4').age())
+        self.assertEqual(17, Usuario.objects.get(username='facebook_ok_1').age)
+        self.assertEqual(18, Usuario.objects.get(username='facebook_ok_2').age)
+        self.assertEqual(25, Usuario.objects.get(username='facebook_ok_3').age)
+        self.assertEqual(26, Usuario.objects.get(username='facebook_ok_4').age)
 
 
     def test_update_social_info_facebook(self):
