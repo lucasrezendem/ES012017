@@ -1,3 +1,4 @@
+{% load staticfiles%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +12,7 @@
     <title>Sobre </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href=" {% static 'css/bootstrap.css'%} " rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../static/css/style.css" rel="stylesheet">
@@ -64,9 +65,19 @@
 	<div class="container">
 		<div class="row centered mt mb">
 			<div class="col-lg-8 col-lg-offset-2">
-				<h2>Agenda Cultural</h2>
-				<p>Esse site foi criado no começo de 2017 por alunos da Universidade de Brasilia na disciplina de engenharia de software, com a intenção de promover e divulgar eventos relacionados a bares, festas, esporte e teatro no distrito federal e entorno.</p>
-
+				<h2 id="title_sobre">Agenda Cultural</h2>
+				<h3 class="titulos_sobre"> Motivação </h3>
+				<p class="text_sobre" >Esse site foi criado no começo de 2017 por alunos da Universidade de Brasilia na disciplina de engenharia de software, com a intenção de promover e divulgar eventos relacionados a bares, festas, esporte e teatro no distrito federal e entorno.</p>
+				<img id="imagem_unb" src="{% static 'img/unb.png' %}">
+				<h3 class="titulos_sobre">Missão</h3>
+				<p class="text_sobre">Proporcionar ao usuário opções de lazer de todos os tipos e para todos os orçamentos, divulgação de festas e eventos de todos os estilos para os brasilienses sempre terem opções de aproveitar ao máximo </p>
+				<h3 class="titulos_sobre">Quem somos nos</h3>
+				<p class="text_sobre_2">Alvaro Vieira - Engenharia de Computação</p>
+				<p class="text_sobre_2">Gustavo Henrique Carvalho - Engenharia de Computação</p>
+				<p class="text_sobre_2">Gabriel Pereira Pinheiro - Engenharia de Computação</p>
+				<p class="text_sobre_2">Lucas Resende - Engenharia de Computação</p>
+				<p class="text_sobre_2"> Rodrigo - Ciência da Computação</p>
+				<p class="text_sobre_2">Thiago - Computação Licenciatura</p>
 			</div>
 
 

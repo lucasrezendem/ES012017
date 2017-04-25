@@ -476,6 +476,45 @@ padding-bottom: 30px;
 
 }
 
+#imagem_unb:hover
+{
+	opacity: 0.5;
+
+}
+
+#imagem_unb
+{
+	margin-top: 5%;
+}
+
+#title_sobre
+{
+	margin-top: 3%;
+	font-size: 100px;
+}
+.text_sobre
+{
+	font-size: 25px;
+	margin-top: 5%;
+}
+
+.titulos_sobre{
+	margin-top: 5%;
+	font-size: 35px;
+}
+
+
+.text_sobre_2{
+	margin-top: 2%;
+	font-size: 20px;
+}
+
+.text_sobre_2:hover
+{
+	font-size: 25px;
+	text-shadow: 2px 2px 2px #808080;
+	background-color: transparent;
+}
 #loginText:hover{
 
 	color: white;
