@@ -45,7 +45,7 @@ Se for necessário adicionar uma nova dependencia, instale normalmente com o *pi
 (.venv) $ pip freeze > requirements.txt
 ```
 
-### Djando
+### Django
 Para gerar os arquivos de definição do banco de dados (*migrations*) a partir dos arquivos *models.py* é necessário executar o comando:
 ```sh
 (.venv) $ python manage.py makemigrations
