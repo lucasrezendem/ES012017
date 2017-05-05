@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!<DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../static/ico/favicon.ico">
+    <link rel="shortcut icon" href="../../static/ico/favicon.ico">
 
-    <title>Teatro</title>
+    <title>Cadastrar Evento</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../../static/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
-    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -43,80 +43,29 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-
            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
            	<li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>
            	<li class="active"><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
-
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
 
-	<div id="workwrapTeatro">
+	<div id="workwrapCadastroEventos">
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
-					<h1 id="textoTituloAppGeral">TEATRO</h1>
+				<h3 id="cadastrarText">Cadastrar Evento</h3>
+
+          
+
 				</div>
 			</div><! --/row -->
 	    </div> <!-- /container -->
 	</div><! --/workwrap -->
 	
-	<section id="works"></section>
-	<div class="container">
-		<div class="row centered mt mb">
-			<div class="col-lg-8 col-lg-offset-2">
-				<h4>ABOUT THE PROJECT</h4>
-				<p><i>Cansou de cineminha? Está na hora de curtir uma peça teatral! Escolha a sua abaixo</i></p>
-			</div>
-			
-
-		</div><! --/row -->
-	</div><! --/container -->
-
-	<div class="botoesNovoEvento">
-		<a href="{% url 'cadastrar_evento' %}">
-      <button type="button" class="btn btn-primary">
-        Novo Evento
-      </button>
-    </a>
-	</div>
-
-	    <table class="table">
-  <thead class="thead-inverse">
-    <tr>
-      <th></th>
-      <th>Nome da peça</th>
-      <th>Preço</th>
-      <th>Dias</th>
-      <th>Horário</th>
-      <th>Local</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-
-      <td><a target="_blank" href="http://www.caixacultural.com.br/SitePages/evento-detalhe.aspx?uid=1&eid=1405">Jogo de Cena</a></td>
-      <td>R$ 20(Inteira) e R$ 10(Meia) </td>
-      <td>BILHETERIA: TERÇA À SEXTA FEIRA E DOMINGO</td>
-      <td>13 às 21</td>
-      <td>Teatro da CAIXA</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td><a target="_blank" href="http://www.bancariosdf.com.br/site/index.php/outros-assuntos-2015/o-comprador-de-mentiras-e-atracao-no-teatro-dos-bancarios-no-dia-4-de-maio">O comprador de mentiras</a></td>
-      <td> R$ 40(Inteira) e R$ 20(Meia)</td>
-      <td>04/05/2017</td>
-      <td>20h30</td>
-      <td>Teatro dos Bancários</td>
-    </tr>
-    
-  </tbody>
-</table>
-
+	
 	
 	<div id="social">
 		<div class="container">
@@ -168,6 +117,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
   </body>
 </html>

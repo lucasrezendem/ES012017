@@ -25,3 +25,7 @@ def teatro(request):
 
 def about(request):
     return render(request,  'about.html')
+
+def cadastrar_evento(request):
+    return render(request,  'cadastrar_evento.html')
+
