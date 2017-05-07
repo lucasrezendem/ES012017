@@ -12,7 +12,7 @@ valid_authenticators = ['local', 'facebook']
 # Definicao dos tipos de usuatios
 USER_TYPE_CHOICES = (
     ('US', 'Usuario comum'),
-    ('PR', 'Promovedor de enventos'),
+    ('PR', 'Promoter'),
 )
 
 def validate_authenticator(authenticator):
@@ -46,6 +46,7 @@ class Usuario(AbstractUser):
         blank = True,
     )
     birth_date = models.DateField(validators=[validate_birth_date], null = True, blank = True)
+    authorized_promoter = models.BooleanField(default=False)
 
     user_type = models.CharField(
         max_length=2,
