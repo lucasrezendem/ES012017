@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'eventos',
+    'django_nose',
     'social_django',
 ]
 
@@ -181,3 +182,10 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = { 'fields': 'id, age_range, name, email, picture' }
 
 AUTH_USER_MODEL = 'account.Usuario'
+
+# Configuracao do django-nose (ferramenta de testes)
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=core,account,eventos',
+]
