@@ -28,12 +28,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">AGENDAa CULTURAL</a>
+          <a class="navbar-brand" href="/">AGENDA CULTURAL</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
 
-            <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
             <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>
             <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
 
@@ -43,7 +43,49 @@
     </div>
     {%block content%}
     {%endblock%}
+      <div id="social">
+    <div class="container">
+      <div class="row centered">
+        <div id="socialdribbble" class="col-lg-2">
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+        </div>
+        <div id="socialfacebook" class="col-lg-2">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div id="socialtwitter" class="col-lg-2">
+          <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div id="sociallinkedin" class="col-lg-2">
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <div id="socialinstagram" class="col-lg-2">
+          <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+        <div id="socialtumblr" class="col-lg-2">
+          <a href="#"><i class="fa fa-tumblr"></i></a>
+        </div>
+      
+      </div><! --/row -->
+    </div><! --/container -->
+  </div><! --/social -->
 
+  <div id="footerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-4">
+          <p><b>FIQUE LIGADOS NOS EVENTOS AO SEU REDOR!</b></p>
+        </div>
+      
+        <div class="col-lg-4">
+          <p>"Se você obedece todas as regras, acaba perdendo toda a diversão..."</p>
+        </div>
+        <div class="col-lg-4">
+          <p>hello@instant.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
   </body>
 </html>
