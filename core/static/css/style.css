@@ -595,3 +595,7 @@ a.nounderline:link
 	text-align: right; 
 	margin: 20px;
 }
+
+#cor_do_fundo{
+	background-color : black;
+}
