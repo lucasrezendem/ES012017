@@ -1,3 +1,11 @@
+[run]
+omit =
+      *migrations*
+      *admin.py
+      *__init__.py
+
 [report]
 show_missing = True
-omit = *migrations*
+exclude_lines =
+  # Nao contabiliza as linhas importando modulos
+  from .* import .*
