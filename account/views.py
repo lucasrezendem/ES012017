@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.conf import settings
 from django.http import HttpResponse
 from .models import Usuario
 from .forms import SignUpForm, UpdateForm
+import django.contrib.auth
 
 
 # Profile e' o root de account
@@ -25,7 +26,7 @@ def profile(request):
         diff = context['form'].get_diff()
         if diff != None:
             request.user.update_user_info(diff)
-            context['update_ok'] = True
+            context['update_ok'] = True  # TODO
         else:
             context['update_ok'] = False
     else:
@@ -34,7 +35,7 @@ def profile(request):
     return render(request, 'account/profile.html', context)
 
 
-def login_user(request):
+def login(request):
     if request.user.is_authenticated:
         return redirect('profile')
 
@@ -45,7 +46,7 @@ def login_user(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
-                login(request, user)
+                django.contrib.auth.login(request, user)
                 return redirect(settings.LOGIN_REDIRECT_URL)
         else:
             return render(request, 'account/login.html', {'login_erro': True})
@@ -64,7 +65,7 @@ def signup(request):
             user.initialize_new_user(form.cleaned_data)
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
-            login(request, user)
+            django.contrib.auth.login(request, user)
             return redirect(settings.LOGIN_REDIRECT_URL)
     else:
         form = SignUpForm()
