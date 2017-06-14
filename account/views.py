@@ -15,7 +15,7 @@ def profile(request):
     context = {}
     context['first_name'] = request.user.first_name
     context['last_name'] = request.user.last_name
-    context['social_authenticated'] = False if request.user.authenticator == 'local' else True
+    context['social_authenticated'] = True if request.user.authenticator in ['facebook'] else False
     context['authenticator_name'] = request.user.authenticator.title()
     context['update_ok'] = None
 
@@ -26,7 +26,7 @@ def profile(request):
         diff = context['form'].get_diff()
         if diff != None:
             request.user.update_user_info(diff)
-            context['update_ok'] = True  # TODO
+            context['update_ok'] = True
         else:
             context['update_ok'] = False
     else:
