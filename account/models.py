@@ -112,9 +112,6 @@ class Usuario(AbstractUser):
         else:
             return None
 
-
-
-
 def social_update_pipeline(is_new, backend, user, response, *args, **kwargs):
     if backend.name == 'facebook':
         if is_new:
