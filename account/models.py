@@ -69,7 +69,7 @@ class Usuario(AbstractUser):
         if (age_min != None) and (age_max != None):
             self.age_range = '%d,%d' % (age_max, age_min)
         # Salva o link com a foto do perfil
-        self.picture_url = response.get('picture').get('data').get('url')
+        self.picture_url = response.get('picture', {}).get('data', {}).get('url')
         self.save_clean()
 
     def initialize_social_info_facebook(self, response):
