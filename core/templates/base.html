@@ -12,7 +12,7 @@
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
     <title>Agenda Cultural</title>
- 
+
   </head>
 
   <body>
@@ -33,7 +33,21 @@
 
             <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
             <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>
-            <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+            <li><a href="{% url 'profile' %}">
+                {% if user.is_authenticated %}
+                    {{ user.first_name }} {{ user.last_name }}
+
+                    {% if user.picture_url != None %}
+                        <img
+                            src={{ user.picture_url }}
+                            alt="Profile picture"
+                            style="width:100px;height:100px;"
+                        >
+                    {% endif %}
+                {% else %}
+                    <span class="glyphicon glyphicon-user" aria-hidden="true">
+                {% endif %}
+            </span></a></li>
 
           </ul>
         </div><!--/.nav-collapse -->
