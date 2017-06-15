@@ -1,4 +1,9 @@
+ {%extends 'base.html'%}
+ {%block content%}
+
 !<DOCTYPE html>
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -56,67 +61,120 @@
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
-				<h3 id="cadastrarText">Cadastrar Evento</h3>
-
-          
-
-				</div>
-			</div><! --/row -->
-	    </div> <!-- /container -->
-	</div><! --/workwrap -->
-	
-	
-	
-	<div id="social">
-		<div class="container">
-			<div class="row centered">
-				<div id="socialdribbble" class="col-lg-2">
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-				</div>
-				<div id="socialfacebook" class="col-lg-2">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-				</div>
-				<div id="socialtwitter" class="col-lg-2">
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				</div>
-				<div id="sociallinkedin" class="col-lg-2">
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-				</div>
-				<div id="socialinstagram" class="col-lg-2">
-					<a href="#"><i class="fa fa-instagram"></i></a>
-				</div>
-				<div id="socialtumblr" class="col-lg-2">
-					<a href="#"><i class="fa fa-tumblr"></i></a>
-				</div>
-			
-			</div><! --/row -->
-		</div><! --/container -->
-	</div><! --/social -->
-
-
-	<div id="footerwrap">
-		<div class="container">
-			<div class="row centered">
-				<div class="col-lg-4">
-					<p><b>FIQUE LIGADOS NOS EVENTOS AO SEU REDOR!</b></p>
-				</div>
-			
-				<div class="col-lg-4">
-					<p>"Se você obedece todas as regras, acaba perdendo toda a diversão..."</p>
-				</div>
-				<div class="col-lg-4">
-					<p>hello@instant.com</p>
+					<h2 id="cadastrarText">Cadastre um evento em Brasília</h3>
 				</div>
 			</div>
-		</div>
-	</div><! --/footerwrap -->
+
+		<div id="cadastroFormulario">
+            <!-- Action manda pra URL (pode ser um script), methodo post para colocar no BD'
+            que cuida dos dados depois do submit 
+            Value: valor inicial
+            Size: tamanho em char 
+            Maxlenght: máximo de char a ser escrito-->
+			<form class="form-horizontal" name="CadastroEventoForm" action={% url 'login' %} method="post">
+            {% csrf_token %}
+            <div class="control-group">
+                <label class="control-label" for="username" id="CadastroEventoTitulo">Nome do Evento</label>
+                <div class="controls">
+                    <input type="text" id="username" name="username" size="50">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="teste" id="CadastroEventoTitulo" >Data e Hora do Início</label>
+                <div class="controls">
+                    <input type="datetime-local" name="teste" id="data">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo">Data e Hora do Fim</label>
+                <div class="controls">
+                    <input type="datetime-local" name="teste" id="horario">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo">Atraçoes</label>
+                <div class="controls">
+                   <textarea name="atracoes" rows="4" cols="50">Escreva os nomes, estilos musicais e horários das atrações
+                        </textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo">Ingressos</label>
+                <div class="controls">
+                    <input type="text" name="password" id="password" size="50" placeholder="Masculino/Feminino/Unissex">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo">Classificação etária</label>
+                <div class="controls">
+                      <select name="ClassificacaoEtaria" >
+                        <option value="Livre" selected>Livre</option>
+                        <option value="16anos">16 anos</option>
+                        <option value="18anos">18 anos</option>
+        
+                      </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo">Endereço</label>
+                <div class="controls">
+                    <textarea name="atracoes" rows="4" cols="50"> Endereço, bairro, CEP, referência.
+                    </textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo">Telefone para Contato</label>
+                <div class="controls">
+                        <input type="tel" name="usrtel "size="50" >
+                    </textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo">Mais informações</label>
+                <div class="controls">
+                    <textarea name="atracoes" rows="4" cols="50"> Site, Facebook, Instagram e outras informações.
+                        </textarea>
+                </div>
+            </div>
+   <!--         <div class="control-group">
+                <label class="control-label" for="password" id="CadastroEventoTitulo" ></label>
+                <div class="controls">
+                        <input type="checkbox" name="vehicle2" value="Car" id="CadastroEventoTitulo"> 
+                        Eu li e estou de acordo com os termos e condições.
+                </div>
+            </div> -->
+            <br>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Cadastrar</button>
+                </div>
+            </div>
+
+            <!--{% if login_erro %}
+               <font color="red">Usuario ou senha invalidos</font>
+            {% endif %} -->
+            </form>
+
+
+
+
+	</div>
+	    </div> 
+
+	</div><! --/workwrap -->
 	
 
+	
+	
+	
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="../../static/js/bootstrap.min.js"></script>
+
   </body>
 </html>
+	
+{%endblock%}

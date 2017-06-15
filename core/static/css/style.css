@@ -298,6 +298,18 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	color: #ffffff
 }
+
+#cadastroFormulario {
+	color: #000000;
+	font-size: 20px;
+	text-align: left;
+	padding-top: 50px;
+	padding-left: 250px;
+}
+#CadastroEventoTitulo {
+	color: #ffffff;
+}
+
 #workwrapBares {	
 	background: url(../img/bares.jpg) no-repeat center top;
 	margin-top: -70px;

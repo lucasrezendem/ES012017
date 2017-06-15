@@ -5,6 +5,23 @@ from .models import USER_TYPE_CHOICES, Usuario
 UPDATE_NOT_EDITABLE_FIELDS = ['username', 'password1', 'password2', 'password']
 UPDATE_HIDE_FIELDS = ['password1', 'password2', ]
 
+
+class CadastroEventoForm ():
+    nome_evento = forms.CharField(max_length=50, required=True, help_text="Nome do Evento")
+    data_inicio = forms.DateTimeField(help_text="Data de inicio", required=True)
+    data_fim = forms.DateTimeField(help_text="Data de fim")
+    atracoes = forms.CharField(widget = forms.Textarea)  
+    ingressos = forms.CharField(widget = forms.Textarea)
+    classificacao_etaria = forms.CharField(max_length=50, required=True)
+    endereco = forms.CharField(widget = forms.Textarea, required=True)
+    telefone = forms.CharField(max_length = 12)
+    mais_info = forms.CharField(widget = forms.Textarea)
+
+    class Meta:
+        model = Usuario
+        fields = ('nome_evento','atracoes', 'ingressos', 'classificacao_etaria', 'endereco', 'telefone', 'mais_info')
+
+
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True, help_text='Requeired.')
     last_name = forms.CharField(max_length=30, required=True, help_text='Requeired.')
@@ -15,6 +32,7 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = Usuario
         fields = ('username', 'user_type', 'first_name', 'last_name', 'birth_date','email', 'password1', 'password2', )
+
 
 
 class UpdateForm(SignUpForm):
