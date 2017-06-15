@@ -1,0 +1,601 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://Alvarez.is
+ *
+ * Project Name: NYC Design
+ * Version: 1.0
+ * Date: 04-20-2014
+ * URL: 
+ */
+
+
+/* ==========================================================================
+   Base Styles, Bootstrap Modifications & Fonts Import
+   ========================================================================== */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+
+::-moz-selection {
+    background: #f2c2c9;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+::selection {
+    background: #16a085;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.centered {
+	text-align: center;
+}
+
+.mt {
+	margin-top: 20px;
+}
+
+.mb {
+	margin-bottom: 50px;
+}
+
+/* ==========================================================================
+   General styles
+   ========================================================================== */
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+    color: #4a4a4a;
+}
+
+
+.navbar-brand {
+	font-weight: 700;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+	text-shadow: 2px 2px #000000;
+
+}
+
+.backgroundNavbar{
+		background-image: url('http://www.priberam.pt/dlpo/images/dplp/preto.jpg');
+
+}
+.navbar-default {
+
+	border-color: transparent;
+	background-image: linear-gradient(to bottom, black, #363636);
+
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: white;
+
+	background-image: linear-gradient(to bottom, black, #a3a3a3);
+	border-bottom: 5px solid black
+	text-shadow: 2px 2px #ff0000;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: white;
+	text-shadow: 1px 1px #000000;
+	 font-weight: bold;
+}
+
+/* ==========================================================================
+   Wrap Sections
+   ========================================================================== */
+
+#headerwrap {
+	background: url(../img/background.jpeg) no-repeat center top;
+	margin-top: -120px;
+	padding-top: 240px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	background-origin: border-box;
+	height: 470px;
+	width: 100%;
+	background-color: #2f2f2f;
+	
+    -webkit-background-size: 80%;
+    -moz-background-size: 80%;
+    -o-background-size: 80%;
+    background-size: 80%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#headerwrap h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#social {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: #f2f2f2;
+}
+
+#social i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#social i:hover {
+	color: #4b67a1;
+}
+
+#socialdribbble i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialdribbble i:hover {
+	color: #ea4c89;
+}
+
+#socialfacebook i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialfacebook i:hover {
+	color: #3b5998;
+}
+
+#socialtwitter i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialtwitter i:hover {
+	color: #1da1f2;
+}
+
+#sociallinkedin i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#sociallinkedin i:hover {
+	color: #0077B5;
+}
+
+#socialinstagram i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialinstagram i:hover {
+	color: #663300;
+}
+
+#socialtumblr i {
+	font-size: 40px;
+	color: #4a4a4a;
+}
+
+#socialtumblr i:hover {
+	color: #36465d;
+}
+
+#footerwrap {
+	padding-top: 70px;
+	padding-bottom: 50px;
+	background-color: #2f2f2f;
+}
+
+#footerwrap p {
+	color: #f2f2f2;
+	margin-left: 10px;
+}
+
+#workwrap {	
+	background: url(../img/work.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrap h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrap h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+#workwrapCadastroEventos {	
+	background: url(../img/fotoCadastrarEvento.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 850px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapCadastroEventos h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapCadastroEventos h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+#workwrapBares {	
+	background: url(../img/bares.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapBares h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapBares h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#workwrapEsportes {	
+	background: url(../img/esportes.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapEsportes h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapEsportes h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#workwrapFestas {	
+	background: url(../img/festas.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapFestas h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapFestas h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#workwrapTeatro {	
+	background: url(../img/teatro.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrapTeatro h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrapTeatro h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#aboutwrap {	
+	background: url(../img/newAbout.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 200px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 350px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#textoTituloApp{
+	color: black;
+	text-shadow: 10px 10px 10px #000000;
+	background-color: transparent;
+	margin: 0px; 
+	padding: 0px;
+
+}
+
+#textoTituloApp:hover{
+	color: white;
+	text-shadow: 10px 10px 10px black;
+}
+
+#textoSubTituloApp{
+	color: #FFFAFA;
+	text-shadow: 10px 10px 10px #000000;
+	background-color: transparent;
+	margin: 0px; 
+	padding: 0px;
+
+}
+
+#textoSubTituloApp:hover{
+	color: white;
+	text-shadow: 5px 5px 5px black;
+	background-color: transparent;
+}
+
+
+
+#textoTituloAppGeral{
+	color: white !important;
+	text-shadow: 10px 10px 10px #000000 !important;
+	background-color: transparent !important;
+}
+
+#textoTituloAppGeral:hover{
+	color: white !important;
+	text-shadow: 5px 5px 5px black !important;
+}
+
+#loginText{
+	color: white;
+	text-shadow: 10px 10px 10px black;
+	padding-bottom: 30px;
+}
+#cadastrarText{
+	color: white;
+	text-shadow: 10px 10px 10px black;
+	padding-bottom: 0px;
+	vertical-align: top;
+}
+#imagem_unb:hover
+{
+	opacity: 0.5;
+
+}
+
+#imagem_unb
+{
+	margin-top: 5%;
+}
+
+#title_sobre
+{
+	margin-top: 3%;
+	font-size: 100px;
+}
+.text_sobre
+{
+	font-size: 25px;
+	margin-top: 5%;
+}
+
+.titulos_sobre{
+	margin-top: 5%;
+	font-size: 35px;
+}
+
+
+.text_sobre_2{
+	margin-top: 2%;
+	font-size: 20px;
+}
+
+.text_sobre_2:hover
+{
+	font-size: 22px;
+	text-shadow: 2px 2px 2px #808080;
+	background-color: transparent;
+}
+#loginText:hover{
+
+	color: white;
+	text-shadow: 5px 5px 5px #000000;
+	background-color: transparent;
+
+}
+
+#menusImagem{
+	text-align: center; 
+	margin-left:2px !important; 
+	margin-right:2px !important; 
+	margin-top:0px !important; 
+	background-color: #2f2f2f;
+}
+
+/* Gallery */
+.gallery {
+	margin-top: 30px;
+}
+
+.gallery img:hover {
+	opacity: 0.4;
+}
+
+.tituloApp{
+	color:white;
+	-webkit-filter:grayscale(100%);
+}
+
+.tituloApp:hover{
+	-webkit-filter:grayscale(0%);
+    transition: 1s;
+}
+
+a.nounderline:link 
+{ 
+ text-decoration:none; 
+} 
+
+.botoesNovoEvento{
+	text-align: right; 
+	margin: 20px;
+}
+
+#cor_do_fundo{
+	background-color : black;
+}

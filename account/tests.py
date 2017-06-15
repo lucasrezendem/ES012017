@@ -204,6 +204,7 @@ class ModelUsuarioCase(TestCase):
     """ Testes unitarios para o model Usuario. """
 
     def setUp(self):
+        """ Inicializa objetos do tipo Usuario que seram usados nos testes """
         Usuario.objects.create(
             username = 'local_ok',
             password = '-------------',
@@ -212,7 +213,7 @@ class ModelUsuarioCase(TestCase):
             birth_date = '2000-05-18',
         )
         Usuario.objects.create(
-            username = 'local_wrong_birth_date',
+            username = 'local_invalid_birth_date',
             password = '-------------',
             authenticator = 'local',
             age_range = None,
@@ -247,76 +248,99 @@ class ModelUsuarioCase(TestCase):
             birth_date = None,
         )
         Usuario.objects.create(
-            username = 'facebook_wrong_age_range_1',
+            username = 'facebook_invalid_age_range_1',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '15,20',
             birth_date = None,
         )
         Usuario.objects.create(
-            username = 'facebook_wrong_age_range_2',
+            username = 'facebook_invalid_age_range_2',
             password = '-------------',
             authenticator = 'facebook',
             age_range = '-35,20',
             birth_date = None,
         )
         Usuario.objects.create(
-            username = 'facebook_wrong_age_range_3',
+            username = 'facebook_invalid_age_range_3',
             password = '-------------',
             authenticator = 'facebook',
-            age_range = '0,20',
+            age_range = '30,20, 17',
             birth_date = None,
         )
         Usuario.objects.create(
-            username = 'wrong_authenticador',
+            username = 'invalid_authenticador_1',
             password = '-------------',
             authenticator = 'qualquercoisa',
             age_range = '20,15',
             birth_date = None,
         )
+        Usuario.objects.create(
+            username = 'invalid_authenticador_2',
+            password = '-------------',
+            authenticator = 'face',
+            age_range = '20,15',
+            birth_date = None,
+        )
 
-    def test_validators(self):
-        # Nao deve ter nenhuma excecao
+    def test_validate_ok(self):
+        """ Nao deve ocorrer nenhum erro de validacao com esses usuarios,
+            todos os campos estao corretos. """
         Usuario.objects.get(username='local_ok').save_clean()
         Usuario.objects.get(username='facebook_ok_1').save_clean()
         Usuario.objects.get(username='facebook_ok_2').save_clean()
         Usuario.objects.get(username='facebook_ok_3').save_clean()
         Usuario.objects.get(username='facebook_ok_4').save_clean()
 
-        # Os validadores devem produzir alguma excecao
+    def test_validate_birth_date(self):
+        """ Testa o validador da data de nascimento com valores invalidos. """
         try:
-            Usuario.objects.get(username='local_wrong_birth_date').save_clean()
+            Usuario.objects.get(username='local_invalid_birth_date').save_clean()
+            self.fail("Expecting exception.")
+        except:
+            pass
+
+    def test_validate_age_range(self):
+        """ Testa o validador do intervalo de idade com valores invalidos. """
+        try:
+            Usuario.objects.get(username='facebook_invalid_age_range_1').save_clean()
             self.fail("Expecting exception.")
         except:
             pass
 
         try:
-            Usuario.objects.get(username='facebook_wrong_age_range_1').save_clean()
+            Usuario.objects.get(username='facebook_invalid_age_range_2').save_clean()
             self.fail("Expecting exception.")
         except:
             pass
 
         try:
-            Usuario.objects.get(username='facebook_wrong_age_range_2').save_clean()
+            Usuario.objects.get(username='facebook_invalid_age_range_3').save_clean()
+            self.fail("Expecting exception.")
+        except:
+            pass
+
+    def test_validate_authenticator(self):
+        """ Testa o validador do autenticador com valores invalidos. """
+        try:
+            Usuario.objects.get(username='invalid_authenticador_1').save_clean()
             self.fail("Expecting exception.")
         except:
             pass
 
         try:
-            Usuario.objects.get(username='facebook_wrong_age_range_3').save_clean()
-            self.fail("Expecting exception.")
-        except:
-            pass
-
-        try:
-            Usuario.objects.get(username='wrong_authenticador').save_clean()
+            Usuario.objects.get(username='invalid_authenticador_2').save_clean()
             self.fail("Expecting exception.")
         except:
             pass
 
 
     def test_age(self):
-        # Confere o calculo aproximado da idade pelo range passado pelo Facebook
+        """ Confere a idade calculada pela data de nascimento ou pelo intervalo
+            de idade retornado pelo Facebook.
+
+            No caso do Facebook em que se tem apenas um intervalo de idade, a idade
+            considerada e' a media aritmetica dos limites desse intervalo. """
         self.assertEqual(17, Usuario.objects.get(username='facebook_ok_1').age)
         self.assertEqual(18, Usuario.objects.get(username='facebook_ok_2').age)
         self.assertEqual(25, Usuario.objects.get(username='facebook_ok_3').age)

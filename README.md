@@ -1,8 +1,7 @@
 # Agenda Cultural
 
 # Histórias de usuário
-As histórias de usuário estão organizadas no Trello.
-- [1ª Interação](https://trello.com/b/dcdz2s00/primeira-interacao) - Desenvonvimento em andamento.
+As histórias de usuário estão organizadas no [Trello](https://trello.com/b/ectLWDnS/hist%C3%B3rias).
 
 # Desenvolvimento
 As instruções para contribuição e desenvolvimento do projeto estão em [CONTRIBUTING.md](CONTRIBUTING.md).

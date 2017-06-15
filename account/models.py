@@ -47,6 +47,8 @@ class Usuario(AbstractUser):
     )
     birth_date = models.DateField(validators=[validate_birth_date], null = True, blank = True)
     authorized_promoter = models.BooleanField(default=False)
+    picture_url = models.CharField(max_length = 350, null = True, blank = True)
+
 
     user_type = models.CharField(
         max_length=2,
@@ -66,6 +68,8 @@ class Usuario(AbstractUser):
         age_max = age_range.get('max') if age_range.get('max') != None else age_range.get('min')
         if (age_min != None) and (age_max != None):
             self.age_range = '%d,%d' % (age_max, age_min)
+        # Salva o link com a foto do perfil
+        self.picture_url = response.get('picture', {}).get('data', {}).get('url')
         self.save_clean()
 
     def initialize_social_info_facebook(self, response):
@@ -111,9 +115,6 @@ class Usuario(AbstractUser):
             return (age_range[0] + age_range[1]) / 2
         else:
             return None
-
-
-
 
 def social_update_pipeline(is_new, backend, user, response, *args, **kwargs):
     if backend.name == 'facebook':
