@@ -9,5 +9,4 @@ urlpatterns = [
     #url(r'^pagina_teatro/$', views.teatro, name='teatro'),
     # url(r'^pagina_esportes/$', views.esportes, name='esportes'),
     url(r'^about/$', views.about, name='about'),
-    url(r'^cadastrar_evento/$', form.CadastroEventoForm, name='cadastrar_evento'),
 ]

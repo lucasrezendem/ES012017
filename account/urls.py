@@ -8,5 +8,4 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(r'^cadastro/$', views.cadastro, name='cadastro'),
 ]

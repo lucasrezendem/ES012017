@@ -1,0 +1,78 @@
+ {%extends 'base.html'%}
+ {%block content%}
+
+    <title>Teatro</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+
+	<div id="workwrapTeatro">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3">
+					<h1 id="textoTituloAppGeral">TEATRO</h1>
+				</div>
+			</div><! --/row -->
+	    </div> <!-- /container -->
+	</div><! --/workwrap -->
+	
+	<section id="works"></section>
+	<div class="container">
+		<div class="row centered mt mb">
+			<div class="col-lg-8 col-lg-offset-2">
+				<h4>ABOUT THE PROJECT</h4>
+				<p><i>Cansou de cineminha? Está na hora de curtir uma peça teatral! Escolha a sua abaixo</i></p>
+			</div>
+			
+
+		</div><! --/row -->
+	</div><! --/container -->
+
+	<div class="botoesNovoEvento">
+		<a href="{% url 'cadastrar_evento' %}">
+      <button type="button" class="btn btn-primary">
+        Novo Evento
+      </button>
+    </a>
+	</div>
+
+	    <table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th></th>
+      <th>Nome da peça</th>
+      <th>Preço</th>
+      <th>Dias</th>
+      <th>Horário</th>
+      <th>Local</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+
+      <td><a target="_blank" href="http://www.caixacultural.com.br/SitePages/evento-detalhe.aspx?uid=1&eid=1405">Jogo de Cena</a></td>
+      <td>R$ 20(Inteira) e R$ 10(Meia) </td>
+      <td>BILHETERIA: TERÇA À SEXTA FEIRA E DOMINGO</td>
+      <td>13 às 21</td>
+      <td>Teatro da CAIXA</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><a target="_blank" href="http://www.bancariosdf.com.br/site/index.php/outros-assuntos-2015/o-comprador-de-mentiras-e-atracao-no-teatro-dos-bancarios-no-dia-4-de-maio">O comprador de mentiras</a></td>
+      <td> R$ 40(Inteira) e R$ 20(Meia)</td>
+      <td>04/05/2017</td>
+      <td>20h30</td>
+      <td>Teatro dos Bancários</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+{%endblock%}

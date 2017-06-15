@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate
 from django.conf import settings
 from django.http import HttpResponse
 from .models import Usuario
-from .forms import SignUpForm, UpdateForm, CadastroEventoForm
+from .forms import SignUpForm, UpdateForm
 import django.contrib.auth
 
 
@@ -53,31 +53,6 @@ def login(request):
             return render(request, 'account/login.html', {'login_erro': True})
     else:
         return render(request, 'account/login.html')
-
-def cadastro(request):
-
-
-    if request.POST:
-
-        form = CadastroEventoForm(request.POST)
-
-    else:
-        return render(request, 'account/cadastro.html')
-        # Check if the form is valid:
-      #  if form.is_valid():
-            # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
-      #      book_inst.due_back = form.cleaned_data['renewal_date']
-      #      book_inst.save()
-
-            # redirect to a new URL:
-       #     return HttpResponseRedirect(reverse('all-borrowed') )
-
-    # If this is a GET (or any other method) create the default form.
-
-     #   proposed_renewal_date = datetime.date.today() + datetime.timedelta(weeks=3)
-     #   form = CadastroEventoForm()
-
-#return render(request, 'account/cadastro.html', {'form': form})
 
 
 def signup(request):
