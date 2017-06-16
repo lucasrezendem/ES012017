@@ -23,7 +23,7 @@ class abstract_event(models.Model):
 
 class bar(abstract_event):
     """ Especifica entidade do tipo Bar. """
-    precoLitrao = models.DecimalField(max_digits = 5, decimal_places = 2, validators = [MinValueValidator(0)])
+    precoLitrao = models.DecimalField(max_digits = 4, decimal_places = 2, validators = [MinValueValidator(0)])
 
     class Meta:
         abstract = False

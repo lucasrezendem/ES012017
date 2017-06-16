@@ -47,3 +47,24 @@ def cadastro_evento(request, tipo_evento):
 
     context['tipoDeEvento'] = tipo_evento
     return render(request, 'eventos/cadastro.html', context)
+
+def deleta_evento(request, tipo_evento, nome):
+    if tipo_evento == 'bar':
+        modelClass = bar
+        redirectTo = 'bares'
+
+    elif tipo_evento == 'festa':
+        raise Http404("Pagina festa nao existe.")
+    elif tipo_evento == 'esporte':
+        raise Http404("Pagina esporte nao existe.")
+    elif tipo_evento == 'teatro':
+        raise Http404("Pagina teatro nao existe.")
+    else:
+        raise Http404("Pagina nao existe.")
+
+    try:
+        modelClass.objects.get(nome = nome).delete()
+    except DoesNotExist:
+        raise Http404("Registro nao encontrado")
+
+    return redirect(redirectTo)

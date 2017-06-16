@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^festas/$', views.festas, name='festas'),
     url(r'^teatro/$', views.teatro, name='teatro'),
     url(r'^esportes/$', views.esportes, name='esportes'),
+    url(r'^delete/(?P<tipo_evento>.+)/(?P<nome>.+)/$', views.deleta_evento, name='deleta_evento'),
 ]
