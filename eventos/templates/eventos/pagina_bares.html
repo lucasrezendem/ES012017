@@ -38,7 +38,33 @@
     </a>
   </div>
 
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Nome</th>
+                <th>Preço do litrão</th>
+            </tr>
+            {% for bar in tabela_bares %}
+                <tr>
+                    <td>{{ bar.nome }}</td>
+                    <td>{{ bar.precoLitrao }}</td>
+                    <td>
+                        <!--- Botoes para avaliacao, editar e deletar o evento --->
+                        <!---<a>1</a>
+                        <a>2</a>
+                        <a>3</a>
+                        <a>4</a>
+                        <a>5</a>--->
+                        <a>E</a>
+                        <a>D</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
+
+<!---
     <table class="table">
   <thead class="thead-inverse">
     <tr>
@@ -102,6 +128,7 @@
     </tr>
   </tbody>
 </table>
+--->
 
 	
 {%endblock%}

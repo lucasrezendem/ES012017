@@ -11,7 +11,7 @@ class cadastroBarForm(ModelForm):
 
     def clean(self):
         self.instance.tipoDoEvento = 'BA'
-        return super(barForm, self).clean()
+        return super(cadastroBarForm, self).clean()
 
 #class CadastroEventoForm():
 #    nome_evento = forms.CharField(max_length=50, required=True, help_text="Nome do Evento")

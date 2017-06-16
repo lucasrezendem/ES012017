@@ -11,7 +11,7 @@ TIPOS_DE_EVENTOS = (
 
 class abstract_event(models.Model):
     """ Especifica os campos comuns a todos tipos de eventos. """
-    nome = models.CharField(max_length=50)
+    nome = models.CharField(max_length=50, unique = True, primary_key=True)
     tipoDoEvento = models.CharField(
         max_length = 2,
         choices = TIPOS_DE_EVENTOS
@@ -27,21 +27,25 @@ class bar(abstract_event):
 
     class Meta:
         abstract = False
+        ordering = ['nome']
 
 class festa(abstract_event):
 
     class Meta:
         abstract = False
+        ordering = ['nome']
 
 class esporte(abstract_event):
 
     class Meta:
         abstract = False
+        ordering = ['nome']
 
 class teatro(abstract_event):
 
     class Meta:
         abstract = False
+        ordering = ['nome']
 
 #class Local(models.Model):
 #	nome = models.CharField(max_length = 45)

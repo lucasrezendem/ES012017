@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from .forms import cadastroBarForm
 from .models import bar
 
 def bares(request):
-    return render(request,  'eventos/pagina_bares.html')
+    context = {}
+    context["tabela_bares"] = bar.objects.all()
+    return render(request,  'eventos/pagina_bares.html', context)
 
 def esportes(request):
     return render(request,  'eventos/pagina_esportes.html')
@@ -18,47 +21,29 @@ def teatro(request):
 def cadastro_evento(request, tipo_evento):
     """ Carrega o formulario de cadastro especifico para o tipo de evento e
         realiza o cadastro. """
-    if request.method == 'GET':
-        context = {}
-        context['tipoDeEvento'] = tipo_evento
+    context = {}
 
-        if tipo_evento == 'bar':
-            context['form'] = cadastroBarForm()
+    if tipo_evento == 'bar':
+        formClass = cadastroBarForm
 
-        elif tipo_evento == 'festa':
-            raise Http404("Pagina festa nao existe.")
-        elif tipo_evento == 'esporte':
-            raise Http404("Pagina esporte nao existe.")
-        elif tipo_evento == 'teatro':
-            raise Http404("Pagina teatro nao existe.")
-        else:
-            raise Http404("Pagina nao existe.")
-
-        return render(request, 'eventos/cadastro.html', context)
-
-    elif request.method == 'POST':
+    elif tipo_evento == 'festa':
+        raise Http404("Pagina festa nao existe.")
+    elif tipo_evento == 'esporte':
+        raise Http404("Pagina esporte nao existe.")
+    elif tipo_evento == 'teatro':
+        raise Http404("Pagina teatro nao existe.")
+    else:
         raise Http404("Pagina nao existe.")
 
+    if request.method == 'POST':
+        form = formClass(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('bares')
+        context['form'] = form
 
+    elif request.method == 'GET':
+        context['form'] = formClass()
 
-    if request.POST:
-
-        form = CadastroEventoForm(request.POST)
-
-    else:
-        return render(request, 'account/cadastro.html')
-        # Check if the form is valid:
-      #  if form.is_valid():
-            # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
-      #      book_inst.due_back = form.cleaned_data['renewal_date']
-      #      book_inst.save()
-
-            # redirect to a new URL:
-       #     return HttpResponseRedirect(reverse('all-borrowed') )
-
-    # If this is a GET (or any other method) create the default form.
-
-     #   proposed_renewal_date = datetime.date.today() + datetime.timedelta(weeks=3)
-     #   form = CadastroEventoForm()
-
-#return render(request, 'account/cadastro.html', {'form': form})
+    context['tipoDeEvento'] = tipo_evento
+    return render(request, 'eventos/cadastro.html', context)
