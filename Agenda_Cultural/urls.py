@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
     url(r'^', include('core.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^eventos/', include('eventos.urls')),
 ]
