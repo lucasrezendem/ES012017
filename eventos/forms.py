@@ -3,15 +3,24 @@ from .models import bar
 
 # Campos que devem estar no formulario de todos tipos de eventos
 abstract_event_fields = ['nome']
+not_editable_fields = ['nome']
+
+bar_fields = abstract_event_fields + ['precoLitrao']
 
 class cadastroBarForm(ModelForm):
     class Meta:
         model = bar
-        fields = abstract_event_fields + ['precoLitrao']
+        fields = bar_fields
 
     def clean(self):
         self.instance.tipoDoEvento = 'BA'
         return super(cadastroBarForm, self).clean()
+
+
+class atualizaBarForm(ModelForm):
+    class Meta:
+        model = bar
+        fields = list(set(bar_fields) - set(not_editable_fields))
 
 #class CadastroEventoForm():
 #    nome_evento = forms.CharField(max_length=50, required=True, help_text="Nome do Evento")

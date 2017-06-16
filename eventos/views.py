@@ -1,15 +1,17 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from .forms import cadastroBarForm
-from .models import bar
+from .forms import *
+from .models import *
 
 def bares(request):
     context = {}
     context["tabela_bares"] = bar.objects.all()
     return render(request,  'eventos/pagina_bares.html', context)
 
+
 def esportes(request):
     return render(request,  'eventos/pagina_esportes.html')
+
 
 def festas(request):
     return render(request,  'eventos/pagina_festas.html')
@@ -17,6 +19,7 @@ def festas(request):
 
 def teatro(request):
     return render(request,  'eventos/pagina_teatro.html')
+
 
 def cadastro_evento(request, tipo_evento):
     """ Carrega o formulario de cadastro especifico para o tipo de evento e
@@ -48,6 +51,7 @@ def cadastro_evento(request, tipo_evento):
     context['tipoDeEvento'] = tipo_evento
     return render(request, 'eventos/cadastro.html', context)
 
+
 def deleta_evento(request, tipo_evento, nome):
     if tipo_evento == 'bar':
         modelClass = bar
@@ -68,3 +72,32 @@ def deleta_evento(request, tipo_evento, nome):
         raise Http404("Registro nao encontrado")
 
     return redirect(redirectTo)
+
+
+def atualiza_evento(request, tipo_evento, nome):
+    """ Carrega o formulario de atualizacao especifico para o tipo de evento. """
+    context = {}
+
+    if tipo_evento == 'bar':
+        formClass = atualizaBarForm
+
+    elif tipo_evento == 'festa':
+        raise Http404("Pagina festa nao existe.")
+    elif tipo_evento == 'esporte':
+        raise Http404("Pagina esporte nao existe.")
+    elif tipo_evento == 'teatro':
+        raise Http404("Pagina teatro nao existe.")
+    else:
+        raise Http404("Pagina nao existe.")
+
+    form = formClass(request.POST or None, instance = bar.objects.get(nome = nome))
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('bares')
+
+    context['form'] = form
+    context['tipoDeEvento'] = tipo_evento
+    context['nome'] = nome
+    return render(request, 'eventos/atualiza.html', context)
