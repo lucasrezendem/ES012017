@@ -10,15 +10,21 @@ def bares(request):
 
 
 def esportes(request):
-    return render(request,  'eventos/pagina_esportes.html')
+    context = {}
+    context["tabela_esportes"] = esporte.objects.all()
+    return render(request,  'eventos/pagina_esportes.html', context)
 
 
 def festas(request):
-    return render(request,  'eventos/pagina_festas.html')
+    context = {}
+    context["tabela_festas"] = festa.objects.all()
+    return render(request,  'eventos/pagina_festas.html', context)
 
 
 def teatro(request):
-    return render(request,  'eventos/pagina_teatro.html')
+    context = {}
+    context["tabela_teatro"] = teatro.objects.all()
+    return render(request,  'eventos/pagina_teatro.html', context)
 
 
 def cadastro_evento(request, tipo_evento):
@@ -28,26 +34,31 @@ def cadastro_evento(request, tipo_evento):
 
     if tipo_evento == 'bar':
         formClass = cadastroBarForm
+        redirectTo = 'bares'
 
     elif tipo_evento == 'festa':
-        raise Http404("Pagina festa nao existe.")
+        formClass = cadastroFestaForm
+        redirectTo = 'festas'
+
     elif tipo_evento == 'esporte':
-        raise Http404("Pagina esporte nao existe.")
+        formClass = cadastroEsporteForm
+        redirectTo = 'esportes'
+
     elif tipo_evento == 'teatro':
-        raise Http404("Pagina teatro nao existe.")
+        formClass = cadastroTeatroForm
+        redirectTo = 'teatro'
+
     else:
         raise Http404("Pagina nao existe.")
 
+    form = formClass(request.POST or None)
+
     if request.method == 'POST':
-        form = formClass(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('bares')
-        context['form'] = form
+            return redirect(redirectTo)
 
-    elif request.method == 'GET':
-        context['form'] = formClass()
-
+    context['form'] = form
     context['tipoDeEvento'] = tipo_evento
     return render(request, 'eventos/cadastro.html', context)
 
@@ -58,11 +69,17 @@ def deleta_evento(request, tipo_evento, nome):
         redirectTo = 'bares'
 
     elif tipo_evento == 'festa':
-        raise Http404("Pagina festa nao existe.")
+        modelClass = festa
+        redirectTo = 'festas'
+
     elif tipo_evento == 'esporte':
-        raise Http404("Pagina esporte nao existe.")
+        modelClass = esporte
+        redirectTo = 'esportes'
+
     elif tipo_evento == 'teatro':
-        raise Http404("Pagina teatro nao existe.")
+        modelClass = teatro
+        redirectTo = 'teatro'
+
     else:
         raise Http404("Pagina nao existe.")
 
@@ -79,23 +96,34 @@ def atualiza_evento(request, tipo_evento, nome):
     context = {}
 
     if tipo_evento == 'bar':
+        modelClass = bar
         formClass = atualizaBarForm
+        redirectTo = 'bares'
 
     elif tipo_evento == 'festa':
-        raise Http404("Pagina festa nao existe.")
+        modelClass = festa
+        formClass = atualizaFestaForm
+        redirectTo = 'festas'
+
     elif tipo_evento == 'esporte':
-        raise Http404("Pagina esporte nao existe.")
+        modelClass = esporte
+        formClass = atualizaEsporteForm
+        redirectTo = 'esportes'
+
     elif tipo_evento == 'teatro':
-        raise Http404("Pagina teatro nao existe.")
+        modelClass = teatro
+        formClass = atualizaTeatroForm
+        redirectTo = 'teatro'
+
     else:
         raise Http404("Pagina nao existe.")
 
-    form = formClass(request.POST or None, instance = bar.objects.get(nome = nome))
+    form = formClass(request.POST or None, instance = modelClass.objects.get(nome = nome))
 
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('bares')
+            return redirect(redirectTo)
 
     context['form'] = form
     context['tipoDeEvento'] = tipo_evento

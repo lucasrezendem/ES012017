@@ -33,10 +33,28 @@
 		</div><! --/row -->
 	</div><! --/container -->
 
-	<div class="botoesNovoEvento">
-		<button type="button" class="btn btn-primary">Novo Evento</button>
-	</div>
-	
 
+  <div class="botoesNovoEvento">
+      <a href={% url 'cadastro_evento' tipo_evento='festa' %}>
+        <button>Adicionar Festa</button>
+    </a>
+  </div>
+
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Nome</th>
+            </tr>
+            {% for festa in tabela_festas %}
+                <tr>
+                    <td>{{ festa.nome }}</td>
+                    <td>
+                        <a href= {% url 'atualiza_evento' tipo_evento='festa' nome=festa.nome %}>A</a>
+                        <a href= {% url 'deleta_evento' tipo_evento='festa' nome=festa.nome %}>D</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 {%endblock%}
