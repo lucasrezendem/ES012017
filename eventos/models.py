@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from django.core.validators import MinValueValidator
 from django.db import models
 
 TIPOS_DE_EVENTOS = (
@@ -16,13 +16,29 @@ class abstract_event(models.Model):
         max_length = 2,
         choices = TIPOS_DE_EVENTOS
     )
+    # TODO: rating e local
 
     class Meta:
         abstract = True
 
 class bar(abstract_event):
     """ Especifica entidade do tipo Bar. """
-    precoLitrao = models.FloatField(default = 0.0)
+    precoLitrao = models.DecimalField(max_digits = 5, decimal_places = 2, validators = [MinValueValidator(0)])
+
+    class Meta:
+        abstract = False
+
+class festa(abstract_event):
+
+    class Meta:
+        abstract = False
+
+class esporte(abstract_event):
+
+    class Meta:
+        abstract = False
+
+class teatro(abstract_event):
 
     class Meta:
         abstract = False

@@ -1,14 +1,29 @@
 from django.shortcuts import render
 from .forms import cadastroBarForm
+from .models import bar
+
+def bares(request):
+    return render(request,  'eventos/pagina_bares.html')
+
+def esportes(request):
+    return render(request,  'eventos/pagina_esportes.html')
+
+def festas(request):
+    return render(request,  'eventos/pagina_festas.html')
+
+
+def teatro(request):
+    return render(request,  'eventos/pagina_teatro.html')
 
 def cadastro_evento(request, tipo_evento):
     """ Carrega o formulario de cadastro especifico para o tipo de evento e
         realiza o cadastro. """
     if request.method == 'GET':
         context = {}
+        context['tipoDeEvento'] = tipo_evento
+
         if tipo_evento == 'bar':
             context['form'] = cadastroBarForm()
-            context['tipoDeEvento'] = 'Bar'
 
         elif tipo_evento == 'festa':
             raise Http404("Pagina festa nao existe.")
