@@ -7,7 +7,7 @@ not_editable_fields = ['nome']
 
 bar_fields = abstract_event_fields + ['precoLitrao']
 esporte_fields = abstract_event_fields
-festa_fields = abstract_event_fields
+festa_fields = abstract_event_fields + ['horario'] + ['dia'] +['atracoes'] + ['classEtaria']
 teatro_fields = abstract_event_fields
 
 class cadastroBarForm(ModelForm):
@@ -45,7 +45,7 @@ class atualizaEsporteForm(ModelForm):
 class cadastroFestaForm(ModelForm):
     class Meta:
         model = festa
-        fields = festa_fields
+        fields = festa_fields  
 
     def clean(self):
         self.instance.tipoDoEvento = 'FE'

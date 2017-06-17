@@ -30,6 +30,12 @@ class bar(abstract_event):
         ordering = ['nome']
 
 class festa(abstract_event):
+ #""" Especifica entidade do tipo Festa. """
+    atracoes = models.CharField(max_length = 50, default = '')
+    horario = models.CharField(max_length = 20, default ='', help_text = 'HH:MM')
+    dia = models.CharField(max_length = 10, default = '', help_text = 'DD/MM/AAAA')
+    atracoes = models.TextField(help_text = 'Escreva as atracoes com seus horarios')
+    classEtaria = models.CharField(max_length = 10, default = '')
 
     class Meta:
         abstract = False

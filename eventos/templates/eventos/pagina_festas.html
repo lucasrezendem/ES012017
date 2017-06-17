@@ -44,13 +44,29 @@
         <thead class="thead-inverse">
             <tr>
                 <th>Nome</th>
+                <th>Horario</th>
+                <th>Dia</th>
+                <th>Atrações</th>
+                <th>Classificação Etária</th>
             </tr>
             {% for festa in tabela_festas %}
                 <tr>
                     <td>{{ festa.nome }}</td>
+                    <td>{{ festa.horario }}</td>
+                    <td>{{ festa.dia  }}</td>
+                    <td>{{ festa.atracoes  }}</td>
+                    <td>{{ festa.classEtaria  }}</td>
                     <td>
+                        <a href={% url 'atualiza_evento' tipo_evento='festa' nome=festa.nome %}>
+                        <img src="../static/add.jpg" alt="Atualizar" style="width:20px;height:20px;border:0;">
+                        </a>
+
+                        <a href={% url 'deleta_evento' tipo_evento='festa' nome=festa.nome %}>
+                        <img src="../static/remove.jpg" alt="Remover" style="width:20px;height:20px;border:0;">
+                        </a>
+<!--
                         <a href= {% url 'atualiza_evento' tipo_evento='festa' nome=festa.nome %}>A</a>
-                        <a href= {% url 'deleta_evento' tipo_evento='festa' nome=festa.nome %}>D</a>
+                        <a href= {% url 'deleta_evento' tipo_evento='festa' nome=festa.nome %}>D</a> -->
                     </td>
                 </tr>
             {% endfor %}
