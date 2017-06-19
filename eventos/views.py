@@ -4,24 +4,32 @@ from .forms import *
 from .models import *
 
 def view_bares(request):
+    """ Mostra a tabela filtrada e ordenada com os eventos do tipo bar. """
+
     context = {}
     context["tabela_bares"] = bar.objects.all()
     return render(request,  'eventos/pagina_bares.html', context)
 
 
 def view_esportes(request):
+    """ Mostra a tabela filtrada e ordenada com os eventos do tipo esporte. """
+
     context = {}
     context["tabela_esportes"] = esporte.objects.all()
     return render(request,  'eventos/pagina_esportes.html', context)
 
 
 def view_festas(request):
+    """ Mostra a tabela filtrada e ordenada com os eventos do tipo festa. """
+
     context = {}
     context["tabela_festas"] = festa.objects.all()
     return render(request,  'eventos/pagina_festas.html', context)
 
 
 def view_teatros(request):
+    """ Mostra a tabela filtrada e ordenada com os eventos do tipo teatro. """
+
     context = {}
     context["tabela_teatros"] = teatro.objects.all()
     return render(request,  'eventos/pagina_teatro.html', context)
@@ -64,6 +72,7 @@ def cadastro_evento(request, tipo_evento):
 
 
 def deleta_evento(request, tipo_evento, nome):
+    """ Deleta o evento correspondente ao nome e tipo recebido como parametro. """
     if tipo_evento == 'bar':
         modelClass = bar
         redirectTo = 'bares'

@@ -3,14 +3,18 @@ from .models import *
 
 # Campos que devem estar no formulario de todos tipos de eventos
 abstract_event_fields = ['nome']
+# Campos presentes na classe abstract_events que nao devem ser editados
 not_editable_fields = ['nome']
 
+# Campos extras presentes em cada tipo de evento, alem dos campos presentes
+# na classe abstract_events
 bar_fields = abstract_event_fields + ['precoLitrao']
 esporte_fields = abstract_event_fields
-festa_fields = abstract_event_fields + ['horario'] + ['dia'] +['atracoes'] + ['classEtaria']
+festa_fields = abstract_event_fields + ['horario', 'dia', 'atracoes', 'classEtaria']
 teatro_fields = abstract_event_fields
 
 class cadastroBarForm(ModelForm):
+    """ Formulario para cadastro de novo evento do tipo bar. """
     class Meta:
         model = bar
         fields = bar_fields
@@ -21,12 +25,14 @@ class cadastroBarForm(ModelForm):
 
 
 class atualizaBarForm(ModelForm):
+    """ Formulario para atualizacao de novo evento do tipo bar. """
     class Meta:
         model = bar
         fields = list(set(bar_fields) - set(not_editable_fields))
 
 
 class cadastroEsporteForm(ModelForm):
+    """ Formulario para cadastro de novo evento do tipo esporte. """
     class Meta:
         model = esporte
         fields = esporte_fields
@@ -37,15 +43,17 @@ class cadastroEsporteForm(ModelForm):
 
 
 class atualizaEsporteForm(ModelForm):
+    """ Formulario para atualizacao de novo evento do tipo esporte. """
     class Meta:
         model = esporte
         fields = list(set(esporte_fields) - set(not_editable_fields))
 
 
 class cadastroFestaForm(ModelForm):
+    """ Formulario para cadastro de novo evento do tipo festa. """
     class Meta:
         model = festa
-        fields = festa_fields  
+        fields = festa_fields
 
     def clean(self):
         self.instance.tipoDoEvento = 'FE'
@@ -53,12 +61,14 @@ class cadastroFestaForm(ModelForm):
 
 
 class atualizaFestaForm(ModelForm):
+    """ Formulario para atualizacao de novo evento do tipo festa. """
     class Meta:
         model = festa
         fields = list(set(festa_fields) - set(not_editable_fields))
 
 
 class cadastroTeatroForm(ModelForm):
+    """ Formulario para cadastro de novo evento do tipo teatro. """
     class Meta:
         model = teatro
         fields = teatro_fields
@@ -69,21 +79,7 @@ class cadastroTeatroForm(ModelForm):
 
 
 class atualizaTeatroForm(ModelForm):
+    """ Formulario para atualizacao de novo evento do tipo teatro. """
     class Meta:
         model = teatro
         fields = list(set(teatro_fields) - set(not_editable_fields))
-
-#class CadastroEventoForm():
-#    nome_evento = forms.CharField(max_length=50, required=True, help_text="Nome do Evento")
-#    data_inicio = forms.DateTimeField(help_text="Data de inicio", required=True)
-#    data_fim = forms.DateTimeField(help_text="Data de fim")
-#    atracoes = forms.CharField(widget = forms.Textarea)
-#    ingressos = forms.CharField(widget = forms.Textarea)
-#    classificacao_etaria = forms.CharField(max_length=50, required=True)
-#    endereco = forms.CharField(widget = forms.Textarea, required=True)
-#    telefone = forms.CharField(max_length = 12)
-#    mais_info = forms.CharField(widget = forms.Textarea)
-
-#    class Meta:
-#        model = Usuario
-#        fields = ('nome_evento','atracoes', 'ingressos', 'classificacao_etaria', 'endereco', 'telefone', 'mais_info')

@@ -2,21 +2,25 @@ from django.contrib import admin
 from django.contrib import admin
 from .models import *
 
+@admin.register(bar)
 class barAdmin(admin.ModelAdmin):
+    """ Registra o model bar no menu de administrador. """
     pass
-admin.site.register(bar, barAdmin)
 
 
+@admin.register(esporte)
 class esporteAdmin(admin.ModelAdmin):
+    """ Registra o model esporte no menu de administrador. """
     pass
-admin.site.register(esporte, esporteAdmin)
 
 
+@admin.register(festa)
 class festaAdmin(admin.ModelAdmin):
+    """ Registra o model festa no menu de administrador. """
     pass
-admin.site.register(festa, festaAdmin)
 
 
+@admin.register(teatro)
 class teatroAdmin(admin.ModelAdmin):
+    """ Registra o model teatro no menu de administrador. """
     pass
-admin.site.register(teatro, teatroAdmin)
