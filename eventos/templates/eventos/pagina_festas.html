@@ -35,11 +35,14 @@
 	</div><! --/container -->
 
 
-  <div class="botoesNovoEvento">
-      <a href={% url 'cadastro_evento' tipo_evento='festa' %}>
-        <button>Adicionar Festa</button>
-    </a>
-  </div>
+    {% if user.is_staff == True %}
+        <div class="botoesNovoEvento">
+            <a href={% url 'cadastro_evento' tipo_evento='bar' %}>
+                <button>Adicionar bar</button>
+            </a>
+        </div>
+    {% endif %}
+
 
     <table class="table">
         <thead class="thead-inverse">
@@ -49,6 +52,7 @@
                 <th>Dia</th>
                 <th>Atrações</th>
                 <th>Classificação Etária</th>
+                <th> </th>
             </tr>
             {% for festa in tabela_festas %}
                 <tr>
@@ -57,15 +61,17 @@
                     <td>{{ festa.dia  }}</td>
                     <td>{{ festa.atracoes  }}</td>
                     <td>{{ festa.classEtaria  }}</td>
-                    <td>
-                        <a href={% url 'atualiza_evento' tipo_evento='festa' nome=festa.nome %}>
-                            <img src={% static 'img/atualiza.png' %} alt="Atualizar" style="width:20px;height:20px;border:0;">
-                        </a>
+                    {% if user.is_staff == True %}
+                        <td>
+                            <a href={% url 'atualiza_evento' tipo_evento='festa' nome=festa.nome %}>
+                                <img src={% static 'img/atualiza.png' %} alt="Atualizar" style="width:20px;height:20px;border:0;">
+                            </a>
 
-                        <a href={% url 'deleta_evento' tipo_evento='festa' nome=festa.nome %}>
-                            <img src={% static 'img/remove.jpg' %} alt="Remover" style="width:20px;height:20px;border:0;">
-                        </a>
-                    </td>
+                            <a href={% url 'deleta_evento' tipo_evento='festa' nome=festa.nome %}>
+                                <img src={% static 'img/remove.jpg' %} alt="Remover" style="width:20px;height:20px;border:0;">
+                            </a>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </tbody>

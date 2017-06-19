@@ -36,6 +36,9 @@
             <li><a href="{% url 'profile' %}">
                 {% if user.is_authenticated %}
                     {{ user.first_name }} {{ user.last_name }}
+                    {% if user.is_staff == True %}
+                        <font color="red">(STAFF)</font>
+                    {% endif %}
 
                     {% if user.picture_url != None %}
                         <img

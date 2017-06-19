@@ -1,3 +1,4 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 from django.shortcuts import redirect
 from .forms import *
@@ -35,6 +36,7 @@ def view_teatros(request):
     return render(request,  'eventos/pagina_teatro.html', context)
 
 
+@staff_member_required
 def cadastro_evento(request, tipo_evento):
     """ Carrega o formulario de cadastro especifico para o tipo de evento e
         realiza o cadastro. """
@@ -71,6 +73,7 @@ def cadastro_evento(request, tipo_evento):
     return render(request, 'eventos/cadastro.html', context)
 
 
+@staff_member_required
 def deleta_evento(request, tipo_evento, nome):
     """ Deleta o evento correspondente ao nome e tipo recebido como parametro. """
     if tipo_evento == 'bar':
@@ -100,6 +103,7 @@ def deleta_evento(request, tipo_evento, nome):
     return redirect(redirectTo)
 
 
+@staff_member_required
 def atualiza_evento(request, tipo_evento, nome):
     """ Carrega o formulario de atualizacao especifico para o tipo de evento. """
     context = {}

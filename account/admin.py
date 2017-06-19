@@ -7,7 +7,7 @@ from .models import Usuario
 class UsuarioAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'age_range', 'birth_date')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'age_range', 'birth_date', 'authenticator')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'authorized_promoter',
                                        'user_type', 'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),

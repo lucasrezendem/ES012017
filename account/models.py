@@ -107,10 +107,8 @@ class Usuario(AbstractUser):
                 return None
             today = date.today()
             return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-        if self.age_range != None:
+        if self.age_range != None and self.age_range != '':
             # Idade aproximada calculada pela media do range
-            if self.age_range == None:
-                return None
             age_range = [int(x) for x in self.age_range.split(",")]
             return (age_range[0] + age_range[1]) / 2
         else:

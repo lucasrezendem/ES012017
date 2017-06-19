@@ -35,29 +35,35 @@
 	</div><! --/container -->
 
 
-  <div class="botoesNovoEvento">
-      <a href={% url 'cadastro_evento' tipo_evento='esporte' %}>
-        <button>Adicionar esporte</button>
-    </a>
-  </div>
+    {% if user.is_staff == True %}
+        <div class="botoesNovoEvento">
+            <a href={% url 'cadastro_evento' tipo_evento='bar' %}>
+                <button>Adicionar bar</button>
+            </a>
+        </div>
+    {% endif %}
+
 
     <table class="table">
         <thead class="thead-inverse">
             <tr>
                 <th>Nome</th>
+                <th> </th>
             </tr>
             {% for esporte in tabela_esportes %}
                 <tr>
                     <td>{{ esporte.nome }}</td>
-                    <td>
-                        <a href={% url 'atualiza_evento' tipo_evento='esporte' nome=esporte.nome %}>
-                            <img src={% static 'img/atualiza.png' %} alt="Atualizar" style="width:20px;height:20px;border:0;">
-                        </a>
+                    {% if user.is_staff == True %}
+                        <td>
+                            <a href={% url 'atualiza_evento' tipo_evento='esporte' nome=esporte.nome %}>
+                                <img src={% static 'img/atualiza.png' %} alt="Atualizar" style="width:20px;height:20px;border:0;">
+                            </a>
 
-                        <a href={% url 'deleta_evento' tipo_evento='esporte' nome=esporte.nome %}>
-                            <img src={% static 'img/remove.jpg' %} alt="Remover" style="width:20px;height:20px;border:0;">
-                        </a>
-                    </td>
+                            <a href={% url 'deleta_evento' tipo_evento='esporte' nome=esporte.nome %}>
+                                <img src={% static 'img/remove.jpg' %} alt="Remover" style="width:20px;height:20px;border:0;">
+                            </a>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </tbody>
