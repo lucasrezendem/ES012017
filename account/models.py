@@ -127,4 +127,4 @@ def social_update_pipeline(is_new, backend, user, response, *args, **kwargs):
         else:
             user.update_social_info_facebook(response)
     else:
-        raise "Invalid backend name", backend.name
+        raise "Invalid backend name"
