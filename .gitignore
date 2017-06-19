@@ -101,3 +101,6 @@ db.sqlite3
 
 # Tags
 tags
+
+# Temporarios
+.=*.swp

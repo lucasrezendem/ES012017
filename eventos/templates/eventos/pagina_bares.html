@@ -1,5 +1,6 @@
  {%extends 'base.html'%}
  {%block content%}
+ {%load staticfiles%}
 
     <title>Bares</title>
 
@@ -55,8 +56,13 @@
                         <a>3</a>
                         <a>4</a>
                         <a>5</a>--->
-                        <a href= {% url 'atualiza_evento' tipo_evento='bar' nome=bar.nome %}>A</a>
-                        <a href= {% url 'deleta_evento' tipo_evento='bar' nome=bar.nome %}>D</a>
+                        <a href={% url 'atualiza_evento' tipo_evento='bar' nome=bar.nome %}>
+                            <img src={% static 'img/atualiza.png' %} alt="Atualizar" style="width:20px;height:20px;border:0;">
+                        </a>
+
+                        <a href={% url 'deleta_evento' tipo_evento='bar' nome=bar.nome %}>
+                            <img src={% static 'img/remove.jpg' %} alt="Remover" style="width:20px;height:20px;border:0;">
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

@@ -3,27 +3,27 @@ from django.shortcuts import redirect
 from .forms import *
 from .models import *
 
-def bares(request):
+def view_bares(request):
     context = {}
     context["tabela_bares"] = bar.objects.all()
     return render(request,  'eventos/pagina_bares.html', context)
 
 
-def esportes(request):
+def view_esportes(request):
     context = {}
     context["tabela_esportes"] = esporte.objects.all()
     return render(request,  'eventos/pagina_esportes.html', context)
 
 
-def festas(request):
+def view_festas(request):
     context = {}
     context["tabela_festas"] = festa.objects.all()
     return render(request,  'eventos/pagina_festas.html', context)
 
 
-def teatro(request):
+def view_teatros(request):
     context = {}
-    context["tabela_teatro"] = teatro.objects.all()
+    context["tabela_teatros"] = teatro.objects.all()
     return render(request,  'eventos/pagina_teatro.html', context)
 
 
