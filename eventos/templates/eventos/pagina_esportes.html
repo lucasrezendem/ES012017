@@ -1,5 +1,6 @@
  {%extends 'base.html'%}
  {%block content%}
+ {%load staticfiles%}
 
     <title>Esportes</title>
 
@@ -49,8 +50,13 @@
                 <tr>
                     <td>{{ esporte.nome }}</td>
                     <td>
-                        <a href= {% url 'atualiza_evento' tipo_evento='esporte' nome=esporte.nome %}>A</a>
-                        <a href= {% url 'deleta_evento' tipo_evento='esporte' nome=esporte.nome %}>D</a>
+                        <a href={% url 'atualiza_evento' tipo_evento='esporte' nome=esporte.nome %}>
+                            <img src={% static 'img/atualiza.png' %} alt="Atualizar" style="width:20px;height:20px;border:0;">
+                        </a>
+
+                        <a href={% url 'deleta_evento' tipo_evento='esporte' nome=esporte.nome %}>
+                            <img src={% static 'img/remove.jpg' %} alt="Remover" style="width:20px;height:20px;border:0;">
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
