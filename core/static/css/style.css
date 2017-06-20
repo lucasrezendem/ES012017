@@ -611,3 +611,7 @@ a.nounderline:link
 #cor_do_fundo{
 	background-color : black;
 }
+
+#letras_login{
+	color:white;
+}

@@ -17,13 +17,13 @@
           <div id="login">
             <form class="form-horizontal" name="LoginForm" action={% url 'login' %} method="post">
             {% csrf_token %}
-            <div class="control-group">
+            <div id="letras_login" class="control-group">
                 <label class="control-label" for="username">Username</label>
                 <div class="controls">
                     <input type="text" id="username" name="username"  placeholder="Username">
                 </div>
             </div>
-            <div class="control-group">
+            <div id ="letras_login" class="control-group">
                 <label class="control-label" for="password">Password</label>
                 <div class="controls">
                     <input type="password" name="password" id="password" placeholder="Password">
