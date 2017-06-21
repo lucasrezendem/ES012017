@@ -1,1 +1,1 @@
-web: gunicorn Agenda_Cultural.wsgi
+web: gunicorn Agenda_Cultural.wsgi --log-file -
