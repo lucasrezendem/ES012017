@@ -9,11 +9,6 @@ from datetime import date
 
 valid_authenticators = ['local', 'facebook']
 
-# Definicao dos tipos de usuatios
-USER_TYPE_CHOICES = (
-    ('US', 'Usuario comum'),
-    ('PR', 'Promoter'),
-)
 
 def validate_authenticator(authenticator):
     if authenticator not in valid_authenticators:
@@ -50,12 +45,6 @@ class Usuario(AbstractUser):
     picture_url = models.CharField(max_length = 350, null = True, blank = True)
 
 
-    user_type = models.CharField(
-        max_length=2,
-        choices=USER_TYPE_CHOICES,
-        default='US',
-    )
-
     def save_clean(self, *args, **kwargs):
         self.full_clean()
         self.save()
@@ -83,8 +72,6 @@ class Usuario(AbstractUser):
             self.first_name = new_info['first_name']
         if new_info.get('last_name') != None:
             self.last_name = new_info['last_name']
-        if new_info.get('user_type') != None:
-            self.user_type = new_info['user_type']
         if new_info.get('birth_date') != None:
             self.birth_date = new_info['birth_date']
         if new_info.get('email') != None:

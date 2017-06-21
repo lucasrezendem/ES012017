@@ -43,7 +43,6 @@ class ViewProfileTest(TestCase):
     def test_profile_update(self):
         """ Testa a atualizacao das informcoes pela pagina profile. """
         update_user_info = {
-                            'user_type': 'US',
                             'first_name': 'usuario',
                             'last_name': 'atualizado',
                             'birth_date': '1996-10-01',
@@ -59,7 +58,6 @@ class ViewProfileTest(TestCase):
 
         # Confere se os dados foram atualizados corretamente
         self.assertEqual('usuario_para_atualizar', response.context['user'].username)
-        self.assertEqual(update_user_info['user_type'], response.context['user'].user_type)
         self.assertEqual(update_user_info['first_name'], response.context['user'].first_name)
         self.assertEqual(update_user_info['last_name'], response.context['user'].last_name)
         self.assertEqual(update_user_info['email'], response.context['user'].email)
@@ -161,7 +159,6 @@ class ViewSignupTest(TestCase):
         """ Testa o cadastro de novos usuarios pela pagina signup """
         new_user_info = {
                             'username': 'novo_usuario',
-                            'user_type': 'PR',
                             'first_name': 'novo',
                             'last_name': 'Usuario',
                             'birth_date': '1996-10-01',
@@ -182,7 +179,6 @@ class ViewSignupTest(TestCase):
                 follow = True
             )
         self.assertEqual(new_user_info['username'], response.context['user'].username)
-        self.assertEqual(new_user_info['user_type'], response.context['user'].user_type)
         self.assertEqual(new_user_info['first_name'], response.context['user'].first_name)
         self.assertEqual(new_user_info['last_name'], response.context['user'].last_name)
         self.assertEqual(new_user_info['email'], response.context['user'].email)
