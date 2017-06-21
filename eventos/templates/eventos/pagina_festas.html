@@ -49,20 +49,27 @@
             <tr>
                 <th>Nome</th>
                 <th>Bairro</th>
+                <th>Endereco</th>
+                <th>Ingressos</th>
                 <th>Horario</th>
                 <th>Dia</th>
                 <th>Atrações</th>
                 <th>Classificação Etária</th>
+                <th>Mais informações</th>
                 <th> </th>
             </tr>
             {% for festa in tabela_festas %}
                 <tr>
                     <td>{{ festa.nome }}</td>
                     <td>{{ festa.bairro }}</td>
+                    <td>{{ festa.endereco }}</td>
+                    <td>{{ festa.ingressos }}</td>
                     <td>{{ festa.horario }}</td>
                     <td>{{ festa.dia  }}</td>
                     <td>{{ festa.atracoes  }}</td>
                     <td>{{ festa.classEtaria  }}</td>
+                    <td>{{ festa.mais_info }}</td>
+
                     {% if user.is_staff == True %}
                         <td>
                             <a href={% url 'atualiza_evento' tipo_evento='festa' nome=festa.nome %}>

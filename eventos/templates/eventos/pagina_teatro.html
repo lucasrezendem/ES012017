@@ -48,12 +48,26 @@
             <tr>
                 <th>Nome</th>
                 <th>Bairro</th>
-                <th> </th>
+                <th>Endereço</th>
+                <th>Ingressos</th>
+                <th>Dia</th>
+                <th>Horário</th>
+                <th>Direção</th>
+                <th>Produção</th>
+                <th>Mais informações</th>
             </tr>
             {% for teatro in tabela_teatros %}
                 <tr>
                     <td>{{ teatro.nome }}</td>
                     <td>{{ teatro.bairro }}</td>
+                    <td>{{ teatro.endereco }}</td>
+                    <td>{{ teatro.ingressos }}</td>
+                    <td>{{ teatro.dia }}</td>
+                    <td>{{ teatro.horario }}</td>
+                    <td>{{ teatro.direcao }}</td>
+                    <td>{{ teatro.producao }}</td>
+                    <td>{{ teatro.mais_info}}</td>
+
                     {% if user.is_staff == True %}
                         <td>
                             <a href={% url 'atualiza_evento' tipo_evento='teatro' nome=teatro.nome %}>

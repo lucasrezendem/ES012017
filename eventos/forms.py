@@ -2,16 +2,17 @@ from django.forms import ModelForm
 from .models import *
 
 # Campos que devem estar no formulario de todos tipos de eventos
-abstract_event_fields = ['nome', 'bairro']
+abstract_event_fields = ['nome', 'bairro', 'endereco', 'mais_info']
 # Campos presentes na classe abstract_events que nao devem ser editados
 not_editable_fields = ['nome']
 
 # Campos extras presentes em cada tipo de evento, alem dos campos presentes
 # na classe abstract_events
-bar_fields = abstract_event_fields + ['precoLitrao']
-esporte_fields = abstract_event_fields
-festa_fields = abstract_event_fields + ['horario', 'dia', 'atracoes', 'classEtaria']
-teatro_fields = abstract_event_fields
+bar_fields = abstract_event_fields + ['dias_aberto', 'horario', 'media_cerveja', 'media_drinks', 'media_shots', 'media_petiscos']
+esporte_fields = abstract_event_fields + ['modalidade', 'jogos', 'ingressos', 'horario', 'dia']
+festa_fields = abstract_event_fields + ['ingressos', 'horario', 'dia', 'atracoes', 'classEtaria']
+teatro_fields = abstract_event_fields + ['ingressos', 'horario', 'dia', 'direcao', 'producao']
+
 
 class cadastroBarForm(ModelForm):
     """ Formulario para cadastro de novo evento do tipo bar. """

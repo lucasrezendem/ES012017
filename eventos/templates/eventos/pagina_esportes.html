@@ -47,14 +47,27 @@
     <table class="table">
         <thead class="thead-inverse">
             <tr>
+                <th>Nome</th>
+                <th>Bairro</th>
+                <th>Endereço</th>
                 <th>Modalidade</th>
-                <th>Local Indicado</th>
-                <th> </th>
+                <th>Jogos</th>
+                <th>Ingressos</th>
+                <th>Dia</th>
+                <th>Horário</th>
+                <th>Mais informações</th>
             </tr>
             {% for esporte in tabela_esportes %}
                 <tr>
                     <td>{{ esporte.nome }}</td>
                     <td>{{ esporte.bairro }}</td>
+                    <td>{{ esporte.endereco }}</td>
+                    <td>{{ esporte.modalidade }}</td>
+                    <td>{{ esporte.jogos }}</td>
+                    <td>{{ esporte.ingressos }}</td>
+                    <td>{{ esporte.dia }}</td>
+                    <td>{{ esporte.horario }}</td>
+                    <td>{{ esporte.mais_info }}</td>
                     {% if user.is_staff == True %}
                         <td>
                             <a href={% url 'atualiza_evento' tipo_evento='esporte' nome=esporte.nome %}>

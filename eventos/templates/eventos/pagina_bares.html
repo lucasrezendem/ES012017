@@ -45,15 +45,29 @@
         <thead class="thead-inverse">
             <tr>
                 <th>Nome</th>
-                <th>Preço do litrão</th>
                 <th>Bairro</th>
-                <th> </th>
+                <th>Endereço</th>
+                <th>Dias Aberto</th>
+                <th>Horário de Funcionamento</th>
+                <th>Preço Médio Cerveja </th>
+                <th>Preço Médio Drinks </th>
+                <th>Preço Médio Shots </th>
+                <th>Preço Médio Petiscos </th>
+                <th>Mais informações</th>
             </tr>
             {% for bar in tabela_bares %}
                 <tr>
                     <td>{{ bar.nome }}</td>
-                    <td>{{ bar.precoLitrao }}</td>
                     <td>{{ bar.bairro }}</td>
+                    <td>{{ bar.endereco }}</td>
+                    <td>{{ bar.dias_aberto }}</td>
+                    <td>{{ bar.horario }}</td>
+                    <td>{{ bar.media_cerveja }}</td>
+                    <td>{{ bar.media_drinks }}</td>
+                    <td>{{ bar.media_shots }}</td>
+                    <td>{{ bar.media_petiscos }}</td>
+                    <td>{{ bar.mais_info }}</td>
+                    
                     {% if user.is_staff == True %}
                         <td>
                             <a href={% url 'atualiza_evento' tipo_evento='bar' nome=bar.nome %}>
