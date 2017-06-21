@@ -48,6 +48,7 @@
         <thead class="thead-inverse">
             <tr>
                 <th>Nome</th>
+                <th>Bairro</th>
                 <th>Horario</th>
                 <th>Dia</th>
                 <th>Atrações</th>
@@ -57,6 +58,7 @@
             {% for festa in tabela_festas %}
                 <tr>
                     <td>{{ festa.nome }}</td>
+                    <td>{{ festa.bairro }}</td>
                     <td>{{ festa.horario }}</td>
                     <td>{{ festa.dia  }}</td>
                     <td>{{ festa.atracoes  }}</td>

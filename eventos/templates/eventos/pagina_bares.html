@@ -46,12 +46,14 @@
             <tr>
                 <th>Nome</th>
                 <th>Preço do litrão</th>
+                <th>Bairro</th>
                 <th> </th>
             </tr>
             {% for bar in tabela_bares %}
                 <tr>
                     <td>{{ bar.nome }}</td>
                     <td>{{ bar.precoLitrao }}</td>
+                    <td>{{ bar.bairro }}</td>
                     {% if user.is_staff == True %}
                         <td>
                             <a href={% url 'atualiza_evento' tipo_evento='bar' nome=bar.nome %}>

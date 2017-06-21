@@ -12,6 +12,7 @@ TIPOS_DE_EVENTOS = (
 class abstract_event(models.Model):
     """ Especifica os campos comuns a todos tipos de eventos. """
     nome = models.CharField(max_length=50, unique = True, primary_key=True)
+    bairro = models.CharField(max_length = 40, default= '')
     tipoDoEvento = models.CharField(
         max_length = 2,
         choices = TIPOS_DE_EVENTOS
@@ -21,13 +22,16 @@ class abstract_event(models.Model):
     class Meta:
         abstract = True
 
+
 class bar(abstract_event):
     """ Especifica entidade do tipo Bar. """
     precoLitrao = models.DecimalField(max_digits = 4, decimal_places = 2, validators = [MinValueValidator(0)])
-
+    
     class Meta:
         abstract = False
         ordering = ['nome']
+
+
 
 class festa(abstract_event):
     """ Especifica entidade do tipo Festa. """
@@ -41,12 +45,16 @@ class festa(abstract_event):
         abstract = False
         ordering = ['nome']
 
+
+
 class esporte(abstract_event):
     """ Especifica entidade do tipo Esporte. """
 
     class Meta:
         abstract = False
         ordering = ['nome']
+
+
 
 class teatro(abstract_event):
     """ Especifica entidade do tipo Teatro. """
