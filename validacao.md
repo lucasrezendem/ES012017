@@ -1,4 +1,4 @@
-#TESTES DE VALIDAÇÃO
+# TESTES DE VALIDAÇÃO
 
 Eu como cliente quero um site para buscar eventos em Brasília relacionados a bares, festas, esportes e teatro. Gostaria de que
 cada um tivesse seu proprio menu. Na home page seria mostrado 4 links referentes a cada pagina, e uma barra superior onde o 
@@ -16,3 +16,6 @@ Ao clicar em cadastrar na página de esportes, por exemplo, quero que eu seja re
 automaticamente incluído na tabela de esportes, onde apenas o membro da staff consiga apagar ou editar tal evento.
 
 Ao ir na página de festas, clicando em cadastrar festas, gostaria que fosse exibido em outra tela uma página de cadastro de festas contendo os seguintes campos de input: Nome, horario, dia, atrações e classificação etária. Ao clicar em cadastrar, quero que seja automaticamente incluido na tabela de festas, onde apenas o membro da staff consiga apagar ou editar tal evento.
+
+Ao ir na página de teatro, clicando em cadastrar teatro, gostaria que fosse exibido em outra tela uma página de cadastro de teatro contendo o campo de nome. Ao clicar em cadastrar, quero que seja automaticamente incluido na tabela de teatro, onde apenas o membro da staff consiga apagar ou editar tal evento.
+ 
