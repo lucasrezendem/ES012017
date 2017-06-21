@@ -47,11 +47,13 @@
         <thead class="thead-inverse">
             <tr>
                 <th>Nome</th>
+                <th>Bairro</th>
                 <th> </th>
             </tr>
             {% for teatro in tabela_teatros %}
                 <tr>
                     <td>{{ teatro.nome }}</td>
+                    <td>{{ teatro.bairro }}</td>
                     {% if user.is_staff == True %}
                         <td>
                             <a href={% url 'atualiza_evento' tipo_evento='teatro' nome=teatro.nome %}>

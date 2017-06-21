@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from .models import *
 
 # Campos que devem estar no formulario de todos tipos de eventos
-abstract_event_fields = ['nome']
+abstract_event_fields = ['nome', 'bairro']
 # Campos presentes na classe abstract_events que nao devem ser editados
 not_editable_fields = ['nome']
 

@@ -47,12 +47,14 @@
     <table class="table">
         <thead class="thead-inverse">
             <tr>
-                <th>Nome</th>
+                <th>Modalidade</th>
+                <th>Local Indicado</th>
                 <th> </th>
             </tr>
             {% for esporte in tabela_esportes %}
                 <tr>
                     <td>{{ esporte.nome }}</td>
+                    <td>{{ esporte.bairro }}</td>
                     {% if user.is_staff == True %}
                         <td>
                             <a href={% url 'atualiza_evento' tipo_evento='esporte' nome=esporte.nome %}>
