@@ -4,8 +4,6 @@ from django.conf import settings
 from .models import *
 from datetime import date
 
-# Create your tests here.
-
 class view_bar(TestCase):
     def teste_template(self):
         response = self.client.get(reverse('bares'))

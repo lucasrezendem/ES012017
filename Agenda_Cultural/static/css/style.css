@@ -593,48 +593,39 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: white;
 }
 
-
-
-
-
-
-
-
-
-
-#loginText:hover{
-
+#loginText:hover
+{
 	color: white;
 	text-shadow: 5px 5px 5px #000000;
 	background-color: transparent;
-
 }
 
-#menusImagem{
+#menusImagem
+{
 	text-align: center; 
 	margin-left:2px !important; 
 	margin-right:2px !important; 
 	margin-top:0px !important; 
 	background-color: #2f2f2f;
 }
-
-/* Gallery */
-.gallery {
+.gallery 
+{
 	margin-top: 30px;
 }
 
-
-
-.gallery img:hover {
+.gallery img:hover
+{
 	opacity: 0.4;
 }
 
-.tituloApp{
+.tituloApp
+{
 	color:white;
 	-webkit-filter:grayscale(100%);
 }
 
-.tituloApp:hover{
+.tituloApp:hover
+{
 	-webkit-filter:grayscale(0%);
     transition: 1s;
 }
