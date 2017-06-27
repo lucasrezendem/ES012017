@@ -19,4 +19,14 @@ class view_esporte(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'eventos/pagina_esportes.html')
 
+class view_festas(TestCase):
+    def teste_template(self):
+        response = self.client.get(reverse('festas'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'eventos/pagina_festas.html')
 
+class view_teatro(TestCase):
+    def teste_template(self):
+        response = self.client.get(reverse('teatro'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'eventos/pagina_teatro.html')
