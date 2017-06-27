@@ -552,6 +552,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+
 .text_sobre_2{
 	margin-top: 2%;
 	font-size: 20px;
@@ -563,6 +565,43 @@ h1, h2, h3, h4, h5, h6 {
 	text-shadow: 2px 2px 2px #808080;
 	background-color: transparent;
 }
+
+
+.titulo_sobre3{
+	font-size: 30px;
+	margin-top:8%;
+}
+
+.titulo_sobre3:hover
+{
+	font-size: 42px;
+	text-shadow: 2px 2px 2px #FFFFFF;
+	background-color: red;
+}
+
+.titulo_sobre4
+{
+	font-size: 30px;
+	margin-top:10%;
+}
+
+.titulo_sobre4:hover
+{
+
+	font-size: 42px;
+	text-shadow: 2px 2px 2px #808080;
+	background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
 #loginText:hover{
 
 	color: white;
@@ -583,6 +622,8 @@ h1, h2, h3, h4, h5, h6 {
 .gallery {
 	margin-top: 30px;
 }
+
+
 
 .gallery img:hover {
 	opacity: 0.4;
