@@ -20,5 +20,6 @@ As instruções para contribuição e desenvolvimento do projeto estão em [CONT
 
 ## Objetivo
 
-- Como todos os desenvolvedores são jovens e moradores de Brasília, sabiam a dificuldade de encontrar eventos na cidade e programas para realizarem com seus amigos, com isso surgiu a ideia de criar um site que fosse possivel a melhor divulgação e ao alcance de todos de atiividades culturais ao moradores do DF e o entorno. 
+- Como todos os desenvolvedores são jovens e moradores de Brasília, sabiam a dificuldade de encontrar eventos na cidade e programas para realizarem com seus amigos, com isso surgiu a ideia de criar um site que fosse possivel a melhor divulgação e ao alcance de todos de atiividades culturais ao moradores do DF e o entorno.
+- O site tem a função de divulgar eventos e informações a respeito de bares, festas, teatro e esportes . No quesito bares foram divulgados informações a respeito de bares como preço médio, localização, horário de funcionamento e entre outros.
 
