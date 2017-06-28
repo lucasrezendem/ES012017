@@ -18,3 +18,7 @@ As instruções para contribuição e desenvolvimento do projeto estão em [CONT
 
 - O projeto [Agenda Cultural](https://agendacultural.herokuapp.com/) foi desenvolvido como projeto da disciplina ```Engenharia de Software``` na Univerisade de Brasilia no primeiro semestre de 2017. Foi criado por alunos dos cursos de Engenharia da Computação de Ciencia da Computação.
 
+## Objetivo
+
+- Como todos os desenvolvedores são jovens e moradores de Brasília, sabiam a dificuldade de encontrar eventos na cidade e programas para realizarem com seus amigos, com isso surgiu a ideia de criar um site que fosse possivel a melhor divulgação e ao alcance de todos de atiividades culturais ao moradores do DF e o entorno. 
+
