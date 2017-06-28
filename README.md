@@ -26,4 +26,6 @@ As instruções para contribuição e desenvolvimento do projeto estão em [CONT
 
 ## Metodologia Ágil 
 
-- O projeto foi a primeira experiência utilizando a fundo uma metodologia ágil, a sugerida pelo professor foi a [Extreme Programming](https://en.wikipedia.org/wiki/Extreme_programming), aspectos como: ```pair programming```, ```Collective Ownership```, ```Continuous Integration``` e entre outros que foram listados no relatório. 
+- O projeto foi a primeira experiência utilizando a fundo uma metodologia ágil, a sugerida pelo professor foi a [Extreme Programming](https://en.wikipedia.org/wiki/Extreme_programming), aspectos como: ```pair programming```, ```Collective Ownership```, ```Continuous Integration``` e entre outros que foram listados no relatório de uso de tecnicas utilizadas.
+
+
