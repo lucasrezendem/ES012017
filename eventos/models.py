@@ -22,7 +22,6 @@ class abstract_event(models.Model):
         max_length = 2,
         choices = TIPOS_DE_EVENTOS
     )
-    # TODO: rating e local
 
     class Meta:
         abstract = True

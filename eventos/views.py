@@ -1,8 +1,10 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.http import Http404
 from .forms import *
 from .models import *
+from django.core.exceptions import ObjectDoesNotExist
 
 def view_bares(request):
     """ Mostra a tabela filtrada e ordenada com os eventos do tipo bar. """
@@ -97,7 +99,7 @@ def deleta_evento(request, tipo_evento, nome):
 
     try:
         modelClass.objects.get(nome = nome).delete()
-    except DoesNotExist:
+    except ObjectDoesNotExist:
         raise Http404("Registro nao encontrado")
 
     return redirect(redirectTo)
